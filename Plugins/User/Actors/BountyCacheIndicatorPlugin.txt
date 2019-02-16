@@ -1,0 +1,55 @@
+
+//Zerious ZX
+namespace Turbo.Plugins.User.Actors
+{
+    using System.Linq;
+    using Turbo.Plugins.Default;
+
+    public class BountyCacheIndicatorPlugin : BasePlugin, IInGameWorldPainter
+    {
+        public WorldDecoratorCollection BountyCacheDecorator { get; set; }
+        public string GroundLabelText;
+
+        public BountyCacheIndicatorPlugin()
+        {
+            Enabled = true;
+            GroundLabelText = "BOUNTY!!";
+        }
+
+        public override void Load(IController hud)
+        {
+            base.Load(hud);
+
+            BountyCacheDecorator = new WorldDecoratorCollection(
+                new GroundCircleDecorator(Hud)
+                {
+                    Brush = Hud.Render.CreateBrush(240, 200, 200, 0, 4),
+                    Radius = 1.5f,
+                },
+                new GroundLabelDecorator(Hud)
+                {
+                    BackgroundBrush = Hud.Render.CreateBrush(220, 200, 200, 0, 0),
+                    TextFont = Hud.Render.CreateFont("tahoma", 7, 255, 255, 255, 255, true, false, false)
+                },
+                new MapShapeDecorator(Hud)
+                {
+                    ShapePainter = new RotatingTriangleShapePainter(Hud),
+                    Brush = Hud.Render.CreateBrush(220, 200, 200, 0, 5),
+                    Radius = 10f,
+                    RadiusTransformator = new StandardPingRadiusTransformator(Hud, 250)
+                }
+            );
+        }
+
+        public void PaintWorld(WorldLayer layer)
+        {            
+            var items = Hud.Game.Items.Where(item => item.Location == ItemLocation.Floor && item.SnoItem.MainGroupCode == "horadriccache");
+
+            foreach (var item in items)
+            {
+                var text = string.IsNullOrWhiteSpace(GroundLabelText) ? item.SnoItem.NameLocalized : GroundLabelText;
+                BountyCacheDecorator.Paint(layer, item, item.FloorCoordinate, GroundLabelText);
+            }
+        }
+    }
+}

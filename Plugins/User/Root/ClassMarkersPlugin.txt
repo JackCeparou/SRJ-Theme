@@ -1,0 +1,29 @@
+
+using Turbo.Plugins.Default;
+
+//Psycho
+namespace Turbo.Plugins.User
+{
+
+    public class ClassMarkersPlugin : BasePlugin, ICustomizer
+    {
+	
+        public void Customize()
+        {
+			Hud.RunOnPlugin<Psycho.ClassMarkersPlugin>(plugin =>
+				{
+					//Example To Disable Only Your Ground Circle Decorator
+					plugin.MyPlayerCircle = false;
+
+					//Example To Disable Other Player Ground Circle Decorators
+					plugin.OtherPlayersCircles = false;
+
+					//Example To Change Class Circle Decorators
+					//Ground Circle Decorator
+					plugin.MyGroundCirleDecorator[HeroClass.Barbarian] = plugin.CreateGroundCircleDecorators(255,255,0,0,5,4);
+					//Map Circle Decorator
+					plugin.MyMapCircleDecorator[HeroClass.Barbarian] = plugin.CreateMapCircleDecorators(255,25,0,0,0,2);
+				});
+		}
+	}
+}

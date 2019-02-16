@@ -1,0 +1,50 @@
+﻿
+// try to draw actual radius size around each mob
+
+namespace Turbo.Plugins._SR.Root
+{
+    using System.Collections.Generic;
+    using System.Linq;
+    using Turbo.Plugins.Default;
+
+    public class SR_RadiusPlugin : BasePlugin, IInGameWorldPainter
+    {
+
+        public WorldDecoratorCollection RadiusDecorator { get; set; }
+		
+        public SR_RadiusPlugin()
+        {
+            Enabled = true;
+        }
+
+
+        public override void Load(IController hud)
+        {
+            base.Load(hud);
+
+            RadiusDecorator = new WorldDecoratorCollection(
+				new GroundLabelDecorator(Hud)
+				{
+					BackgroundBrush = Hud.Render.CreateBrush(255, 255, 255, 255, 0),
+					TextFont = Hud.Render.CreateFont("tahoma", 10, 255, 0, 0, 0, true, false, 80, 0, 255, 0, false),
+				});
+        }
+
+
+        public void PaintWorld(WorldLayer layer)
+        {
+
+			// foreach (var monster in Hud.Game.AliveMonsters)
+			foreach (var monster in Hud.Game.Actors.Where(a => a.IsOnScreen))
+			
+			{
+				var radius = monster.RadiusBottom;
+				RadiusDecorator.GetDecorators<GroundCircleDecorator>().ForEach(d => d.Radius = radius);
+
+				RadiusDecorator.Paint(layer, monster, monster.FloorCoordinate, radius.ToString());
+			};
+
+        }
+
+    }
+}

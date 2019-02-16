@@ -1,0 +1,156 @@
+﻿
+// adaptation of StormReaver v6 xml theme
+
+namespace Turbo.Plugins._SR.Players
+{
+    using SharpDX.Direct2D1;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Turbo.Plugins.Default;
+
+    public class SR_PlayerSkillsCrusPlugin : BasePlugin, ICustomizer, IInGameWorldPainter
+    {
+
+        public WorldDecoratorCollection InnerSanctuaryDefaultDecorator { get; set; }
+        public WorldDecoratorCollection InnerSanctuaryTempleOfProtecteionDecorator { get; set; }
+        public WorldDecoratorCollection InnerSanctuarySafeHavenDecorator { get; set; }
+        public WorldDecoratorCollection InnerSanctuarySanctifiedGroundDecorator { get; set; }
+		
+		
+        public SR_PlayerSkillsCrusPlugin()
+        {
+            Enabled = true;
+        }
+		
+		
+        public void Customize()
+        {
+			
+			/* Hud.RunOnPlugin<PlayerSkillPlugin>(plugin =>
+			{
+                
+				// disable DEFAULT
+				plugin.Enabled = false;
+				
+			}); */
+			
+        }
+		
+		
+        public override void Load(IController hud)
+        {
+            base.Load(hud);
+
+				
+			//  CRUS: Female: 238286  |  Male: 238284
+
+
+			/* **************************
+					  CRUS SKILLS
+			***************************** */
+
+			// Inner Sanctuary
+			
+            // All runes EXCEPT Sanctified Ground (13y? or 11y? 6s)			
+            InnerSanctuaryDefaultDecorator = new WorldDecoratorCollection(
+                new GroundCircleDecorator(Hud)
+                {
+                    Brush = Hud.Render.CreateBrush(100, 255, 30, 30, 4),
+                    Radius = 11,
+                },
+                new GroundLabelDecorator(Hud)
+                {
+                    CountDownFrom = 6,
+                    TextFont = Hud.Render.CreateFont("tahoma", 9, 255, 100, 255, 150, true, false, 128, 0, 0, 0, true),
+                },
+                new GroundTimerDecorator(Hud)
+                {
+                    CountDownFrom = 6,
+                    BackgroundBrushEmpty = Hud.Render.CreateBrush(128, 0, 0, 0, 0),
+                    BackgroundBrushFill = Hud.Render.CreateBrush(100, 255, 30, 30, 0),
+                    Radius = 35,
+                });
+
+            InnerSanctuarySanctifiedGroundDecorator = new WorldDecoratorCollection(
+                new GroundCircleDecorator(Hud)
+                {
+                    Brush = Hud.Render.CreateBrush(100, 255, 30, 30, 4),
+                    Radius = 11,
+                },
+                new GroundLabelDecorator(Hud)
+                {
+                    CountDownFrom = 8,
+                    TextFont = Hud.Render.CreateFont("tahoma", 9, 255, 100, 255, 150, true, false, 128, 0, 0, 0, true),
+                },
+                new GroundTimerDecorator(Hud)
+                {
+                    CountDownFrom = 8,
+                    BackgroundBrushEmpty = Hud.Render.CreateBrush(128, 0, 0, 0, 0),
+                    BackgroundBrushFill = Hud.Render.CreateBrush(100, 255, 30, 30, 0),
+                    Radius = 35,
+                });
+
+
+            /* **********************************
+                    ||	CANNOT TRACK  	||
+            ************************************* */
+
+
+            /* NOTES:
+            
+           The following skill(s) cannot be tracked as there are no actors, only animations:
+
+            Falling Sword: base skill
+			
+            */
+
+        }
+
+
+        public void PaintWorld(WorldLayer layer)
+        {
+            var actors = Hud.Game.Actors;
+            foreach (var actor in actors)
+            {
+                
+                /* ---  Skills where "summoned_by_me" works  --- */
+
+                if (actor.SummonerAcdDynamicId == Hud.Game.Me.SummonerId) // summoned_by_me
+                {
+                    switch (actor.SnoActor.Sno)
+                    {
+                        // Sunwuko Set Exploding Decoy
+                        case 363237: // x1_Monk_Male_Decoy
+                        case 363236: // x1_Monk_Female_Decoy ?
+                            SunwukoDecoyDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
+                            break;
+
+                    }
+                }
+                
+                /* ---  Skills where "summoned_by_me" does not work  --- */
+
+                switch (actor.SnoActor.Sno)
+                {
+
+                    // Inner Sanctuary
+                    // All runes EXCEPT Sanctified Ground (13y? or 11y? 6s)
+                    case 320136: // // X1_Monk_innerSanctuaryRune_forbidden_proxy
+                    case 319583: // // X1_Monk_innerSanctuaryRune_intervene_proxy
+                    case 319337: // // X1_Monk_innerSanctuary_proxy
+                    case 320135: // // X1_Monk_innerSanctuaryRune_healing_proxy
+                    case 319776: // // X1_Monk_innerSanctuaryRune_protect_proxy
+                        InnerSanctuaryDecorator.Paint(layer, actor, actor.FloorCoordinate, null);
+                        break;
+                    case 149848: // Sanctified Ground, rune ?? // Monk_innerSanctuaryRune_duration_proxy
+                        InnerSanctuarySgDeco.Paint(layer, actor, actor.FloorCoordinate, null);
+                        break;
+
+
+				
+                }
+            }
+        }
+		
+    }
+}

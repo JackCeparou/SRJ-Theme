@@ -1,0 +1,581 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	-->
+	<!-- 	 THEME BY 	 -=| STORMREAVER |=-			-->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	-->
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!-- NOTE: 1 is enabled | 0 is disabled.					-->
+	<!-- NOTE: Some overrides are turned off (enabled="0"),		-->
+	<!--       to make those functional, set enabled="1".		-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+
+<!-- ITEMS / DROPS :: customize how to show various items and drops on ground and mimimap -->
+
+
+<!-- =========================	-->
+<!--	ITEMS					-->
+<!-- =========================	-->
+
+	<items>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	LEGENDARY ITEMS		    -->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- mark Legendaries on minimap & ground circle / keywords="legendary,unidentified">	-->
+<Legendary_Items enabled="1" speech_text="default" keywords="legendary_regular,unidentified">
+	<map_shape enabled="1" radius="7" ping_speed="333" shape="triangle-rotate" color="255,255,160,0" stroke="2.5" />
+	<ground_circle enabled="1" radius="1.25" ping_speed="0" color="200,255,160,0" stroke="5" />
+		 <!-- To turn off Ground Labels, change enabled="1" to enabled="0" -->
+	<ground_label enabled="0" on_screen="1" off_screen="1" text="default">
+		<body enabled="1" color="160,0,0,0" stroke="0" />
+		<text font_family="verdana" font_size="9.0" font_bold="0" font_color="255,255,160,0" font_shadow="0">
+			<custom_shadow enabled="1" heavy="1" color="200,0,0,0" />
+		</text>
+	</ground_label>
+	<map_label enabled="1" on_screen="1" off_screen="1" text="default">
+		<body enabled="1" color="160,0,0,0" stroke="0" />
+		<text font_family="verdana" font_size="6.5" font_bold="1" font_color="255,255,160,0" font_shadow="1" />
+	</map_label>
+</Legendary_Items>
+
+<!-- mark Ancient Legendaries on minimap & ground circle / keywords="legendary_ancient,unidentified">	-->
+<Ancient_Legendary_Items enabled="1" speech_text="default" keywords="legendary_ancient,unidentified">
+	<map_shape enabled="1" radius="9" ping_speed="333" shape="triangle-rotate" color="255,255,120,0" stroke="3.0" />
+	<ground_circle enabled="1" radius="1.75" ping_speed="0" color="200,255,120,0" stroke="5" />
+		 <!-- To turn off Ground Labels, change enabled="1" to enabled="0" -->
+	<ground_label enabled="0" on_screen="1" off_screen="1" text="default">
+        <body enabled="1" color="160,0,0,0" stroke="0" />
+        <text font_family="verdana" font_size="9.0" font_bold="1" font_color="255,255,120,0" font_shadow="1" />
+	</ground_label>
+	<map_label enabled="1" on_screen="1" off_screen="1" text="default">
+        <body enabled="1" color="160,0,0,0" stroke="0" />
+        <text font_family="verdana" font_size="7.0" font_bold="1" font_color="255,255,120,0" font_shadow="1">
+			<custom_shadow enabled="1" heavy="1" color="200,0,0,0" />
+		</text>
+	</map_label>
+</Ancient_Legendary_Items>
+
+
+<!-- change Legendary labels to orange // does not contain crafted items, potions and sets lower than 70 -->
+<Legendary_Label enabled="1" keywords="legendary_regular,unidentified,groups=
+ The Horadric Hamburger|Spectrum|Aether Walker|Ahavarion Spear of Lycander|Akanesh the Herald of Righteousness|Akarat's Awakening|Akkhan's Addendum|Akkhan's Leniency|Akkhan's Manacles|Ambo's Pride|Ancestors' Grace|Ancient Parthan Defenders|Andariel's Visage|Anessazi Edge|Angel Hair Braid|Aquila Cuirass|Archmage's Vicalyke|Arcstone|Armor of the Kind Regent|Arreat's Law|Arthef's Spark of Life|Ashnagarr's Blood Bracer|Augustine's Panacea|Azurewrath|Bakkan Caster|Bakuli Jungle Wraps|Balance|Balefire Caster|Baleful Remnant|Band of Hollow Whispers|Band of Might|Band of the Rue Chambers|Bastion's Revered|Beckon Sail|Belt of the Trove|Belt of Transcendence|Bezoar Stone|Binding of the Lost|Bindings of the Lesser Gods|Blackfeather|Blackguard|Blackhand Key|Blade of Prophecy|Blade of the Tribes|Blade of the Warlord|Blessed of Haull|Blind Faith|Blood Brother|Bombadier's Rucksack|Bovine Bardiche|Bracer of Fury|Bracers of Destruction|Bracers of the First Men|Broken Crown|Broken Promises|Bul-Kathos's Wedding Band|Buriza-Do Kyanon|Butcher's Carver|Calamity|Cam's Rebuttal|Cape of the Dark Night|Carnevil|Cesar's Memento|Chain of Shadows|Chaingmail|Chanon Bolter|Chilanik's Chain|Cindercoat|Cluckeye|Coils of the First Spider|Convention of Elements|Cord of the Sherma|Corrupted Ashbringer|Countess Julia's Cameo|Crashing Rain|Crown of the Primus|Crushbane|Crystal Fist|Custerian Wristguards|Dark Mage's Shade|Darklight|Dawn|Dead Man's Legacy|Deadly Rebirth|Death Watch Mantle|Deathseer's Cowl|Deathwish|Defender of Westmarch|Demon Machine|Denial|Depth Diggers|Devil Tongue|Dishonored Legacy|Doombringer|Dovu Energy Trap|Drakon's Lesson|Dread Iron|Eberli Charo|Echoing Fury|Elusive Ring|Emimei's Duffel|Empyrean Messenger|Enchanting Favor|Erlang Shen|Etched Sigil|Eternal Union|Etrayu|Eun-jang-do|Exarian|Eye of Etlich|Eye of Peshkov|Faithful Memory|Fate of the Fell|Fazula's Improbable Chain|Fire Walkers|Fjord Cutter|Flail of the Ascendend|Flesh Tearer|Fleshrake|Fletcher's Pride|Flying Dragon|Fortress Ballista|Fragment of Destiny|Freeze of Deflection|Frostburn|Frydehr's Wrath|Fulminator|Fury of the Ancients|Fury of the Vanished Peak|Gabriel's Vambraces|Gazing Demise|Genzaniku|Gesture of Orpheus|Gift of Silaria|Girdle of Giants|Gladiator Gauntlets|Golden Flense|Goldskin|Goldwrap|Guard of Johanna|Gungdo Gear|Gyana Na Kashu|Gyrfalcon's Foote|Hack|Halcyon's Ascent|Hallowed Bulwark|Halo of Arlyse|Halo of Karini|Hammer Jammers|Hand of the Prophet|Harrington Waistguard|Haunt of Vaxo|Haunting Girdle|Heart of Iron|Heart Slaughter|Hellcat Waistguard|Hellrack|Hellskull|Henri's Perquisition|Hergbrash's Binding|Hexing Pants of Mr. Yan|Hillenbrand's Training Sword|Holy Beacon|Holy Point Shot|Homing Pads|Homunculus|Hunter's Wrath|Hwoj Wrap|Ice Climbers|Incense Torch of the Grand Temple|In-geom|Inviolable Faith|Irontoe Mudsputters|Ivory Tower|Jace's Hammer of Vigilance|Jang's Envelopment|Jawbreaker|Jekangbord|Jeram's Bracers|Johanna's Argument|Justice Lantern|Justinian's Mercy|Karlei's Point|Kassar's Retribution|Kekegi's Unbreakable Spirit|K'mar Tenclip|Kotuur's Brace|Krede's Flame|Kridershot|Kymbo's Gold|Kyoshiro's Blade|Kyoshiro's Soul|Lacuni Prowlers|Lakumba's Ornament|Lamentation|Last Breath|Lefebvre's Soliloquy|Leonine Bow of Hashir|Leoric's Crown|Leoric's Signet|Lianna's Wings|Lidless Wall|Light of Grace|Lion's Claw|Logan's Claw|Lord Greenstone's Fan|Lut Socks|Madawc's Sorrow|Madstone|Magefist|Maloth's Focus|Manald Heal|Manticore|Mantle of Channeling|Mara's Kaleidoscope|Mask of Jeram|Maximus|Mempo of Twilight|Messerschmidt's Reaver|Meticulous Bolts|Mirrorball|Monster Hunter|Moonlight Ward|Mordullu's Promise|Myken's Ball of Hate|Nagelring|Nailbiter|Neanderthal|Nemesis Bracers|Nilfur's Boast|Nutcracker|Oathkeeper|Obsidian Ring of the Zodiac|Oculus Ring|Odyn Son|Odyssey's End|Omnislash|Omryn's Chain|Orb of Infinite Depth|Ouroboros|Pig Sticker|Pinto's Pride|Pledge of Caldeum|Pox Faulds|Pride of Cassius|Primordial Soul|Promise of Glory|Pus Spitter|Puzzle Ring|Quetzalcoatl|Rabid Strike|Rakoff's Glass of Life|Ramaladni's Gift|Ranslor's Folly|Razor Strop|Rechel's Ring of Larceny|Relic of Akarat|Remorseless|Rhen'ho Flayer|Ribald Etchings|Rimeheart|Ring of Emptiness|Rivera Dancers|Rogar's Huge Stone|Rondal's Locket|Sacred Harness|Sacred Harvester|Saffron Wrap|Sash of Knives|Scarbringer|Schaefer's Hammer|Scourge|Scrimshaw|Sebor's Nightmare|See No Evil|Serpent's Sparker|Sever|Shackles of the Invoker|Shard of Hate|Shi Mizu's Haori|Shield of Fury|Shukrani's Triumph|Sin Seekers|Skeleton Key|Skorn|Skular's Salvation|Skull Grasp|Skull of Resonance|Sky Splitter|Skycutter|Skywarden|Sledge Fist|Sledge of Athskeleng|Slipka's Letter Opener|Slorak's Madness|Smoking Thurible|Solanium|Spaulders of Zakara|Spines of Seething Hatred|Spirit Guards|Split Tusk|Squirt's Necklace|St. Archew's Gage|Staff of Chiroptera|Staff of Kyro|Stalgard's Decimator|Standoff|Starfire|Starmetal Kukri|Stone Gauntlets|Stone of Jordan|Storm Crow|Stormshield|String of Ears|Strongarm Bracers|Sublime Conviction|Sun Keeper|SuWong Diviner|Swamp Land Waders|Swiftmount|Sword of Ill Will|Talisman of Aranoch|Tasker and Theo|Telranden's Hand|The Ancient Bonesaber of Zumakalis|The Barber|The Broken Staff|The Burning Axe of Sankis|The Butcher's Sickle|The Cloak of the Garwulf|The Crudest Boots|The Dagger of Darts|The Demon's Demise|The Ess of Johan|The Executioner|The Eye of the Storm|The Final Witness|The Fist of Az'Turrasq|The Flavor of Time|The Flow of Eternity|The Furnace|The Gavel of Judgment|The Gidbinn|The Grand Vizier|The Grandfather|The Grin Reaper|The Laws of Seph|The Magistrate|The Mind's Eye|The Mortal Drama|The Ninth Cirri Satchel|The Oculus|The Paddle|The Raven's Wing|The Shame of Delsere|The Short Man's Finger|The Smoldering Core|The Spider Queen's Grasp|The Star of Azkaranth|The Sultan of Blinding Sand|The Swami|The Tall Man's Finger|The Three Hundredth Spear|The Tormentor|The Twisted Sword|The Undisputed Champion|The Witching Hour|The Zweihander|Thing of the Deep|Thunderfury Blessed Blade of the Windseeker|Thundergod's Vigor|Tiklandian Visage|Trag'Oul Coils|Triumvirate|Tyrael's Might|Tzo Krin's Gaze|Uhkapian Serpent|Unity|Unrelenting Phalanx|Unstable Scepter|Uskang|Vadim's Surge|Valla's Bequest|Valthek's Rebuke|Vambraces of Sescheron|Velvet Camaral|Vengeful Wind|Vigilance|Vigilante Belt|Vile Hive|Vile Ward|Visage of Giyua|Visage of Gunes|Voo's Juicer|Vo'Toyias Spiker|Wand of Woh|Warhelm of Kassar|Warmonger|Warstaff of General Quang|Warzechian Armguards|Wildwood|Wilken's Reach|Windforce|Winter Flurry|Wizardspike|Wojahnni Assaulter|Won Khim Lau|Wormwood|Wraps of Clarity|Wrath of the Bone King|Wyrdward|Xephirian Amulet|Yang's Recurve|Zoey's Secret|Mad Monarch’s Scepter|Ring of Royal Grandeur|Pauldrons of the Skeleton King|Golden Gorget of Leoric|Sanguinary Vambraces|Cloak of Deception|Illusory Boots|Gloves of Worship|Coven’s Criterion|Avarice Band|Burst of Wrath|Boots of Disregard|Pride’s Fall|Envious Blade|Insatiable Belt|Overwhelming Desire|Death’s Bargain|Soulsmasher|Helltrapper|Salvation|Pandemonium Loop|
+">
+	<ground_label enabled="1" on_screen="1" off_screen="1" text="default">
+		<body enabled="1" color="160,0,0,0" stroke="0" />
+		<text font_family="verdana" font_size="9" font_bold="0" font_color="255,255,160,0" font_shadow="1">
+			<custom_shadow enabled="1" heavy="1" color="200,0,0,0" />
+		</text>
+	</ground_label>
+</Legendary_Label>
+
+<!-- change Ancient Legendary labels to orange // does not contain crafted items, potions and sets lower than 70 -->
+<Ancient_Legendary_Label enabled="1" keywords="legendary_ancient,unidentified,groups=
+The Horadric Hamburger|Spectrum|Aether Walker|Ahavarion Spear of Lycander|Akanesh the Herald of Righteousness|Akarat's Awakening|Akkhan's Addendum|Akkhan's Leniency|Akkhan's Manacles|Ambo's Pride|Ancestors' Grace|Ancient Parthan Defenders|Andariel's Visage|Anessazi Edge|Angel Hair Braid|Aquila Cuirass|Archmage's Vicalyke|Arcstone|Armor of the Kind Regent|Arreat's Law|Arthef's Spark of Life|Ashnagarr's Blood Bracer|Augustine's Panacea|Azurewrath|Bakkan Caster|Bakuli Jungle Wraps|Balance|Balefire Caster|Baleful Remnant|Band of Hollow Whispers|Band of Might|Band of the Rue Chambers|Bastion's Revered|Beckon Sail|Belt of the Trove|Belt of Transcendence|Bezoar Stone|Binding of the Lost|Bindings of the Lesser Gods|Blackfeather|Blackguard|Blackhand Key|Blade of Prophecy|Blade of the Tribes|Blade of the Warlord|Blessed of Haull|Blind Faith|Blood Brother|Bombadier's Rucksack|Bovine Bardiche|Bracer of Fury|Bracers of Destruction|Bracers of the First Men|Broken Crown|Broken Promises|Bul-Kathos's Wedding Band|Buriza-Do Kyanon|Butcher's Carver|Calamity|Cam's Rebuttal|Cape of the Dark Night|Carnevil|Cesar's Memento|Chain of Shadows|Chaingmail|Chanon Bolter|Chilanik's Chain|Cindercoat|Cluckeye|Coils of the First Spider|Convention of Elements|Cord of the Sherma|Corrupted Ashbringer|Countess Julia's Cameo|Crashing Rain|Crown of the Primus|Crushbane|Crystal Fist|Custerian Wristguards|Dark Mage's Shade|Darklight|Dawn|Dead Man's Legacy|Deadly Rebirth|Death Watch Mantle|Deathseer's Cowl|Deathwish|Defender of Westmarch|Demon Machine|Denial|Depth Diggers|Devil Tongue|Dishonored Legacy|Doombringer|Dovu Energy Trap|Drakon's Lesson|Dread Iron|Eberli Charo|Echoing Fury|Elusive Ring|Emimei's Duffel|Empyrean Messenger|Enchanting Favor|Erlang Shen|Etched Sigil|Eternal Union|Etrayu|Eun-jang-do|Exarian|Eye of Etlich|Eye of Peshkov|Faithful Memory|Fate of the Fell|Fazula's Improbable Chain|Fire Walkers|Fjord Cutter|Flail of the Ascendend|Flesh Tearer|Fleshrake|Fletcher's Pride|Flying Dragon|Fortress Ballista|Fragment of Destiny|Freeze of Deflection|Frostburn|Frydehr's Wrath|Fulminator|Fury of the Ancients|Fury of the Vanished Peak|Gabriel's Vambraces|Gazing Demise|Genzaniku|Gesture of Orpheus|Gift of Silaria|Girdle of Giants|Gladiator Gauntlets|Golden Flense|Goldskin|Goldwrap|Guard of Johanna|Gungdo Gear|Gyana Na Kashu|Gyrfalcon's Foote|Hack|Halcyon's Ascent|Hallowed Bulwark|Halo of Arlyse|Halo of Karini|Hammer Jammers|Hand of the Prophet|Harrington Waistguard|Haunt of Vaxo|Haunting Girdle|Heart of Iron|Heart Slaughter|Hellcat Waistguard|Hellrack|Hellskull|Henri's Perquisition|Hergbrash's Binding|Hexing Pants of Mr. Yan|Hillenbrand's Training Sword|Holy Beacon|Holy Point Shot|Homing Pads|Homunculus|Hunter's Wrath|Hwoj Wrap|Ice Climbers|Incense Torch of the Grand Temple|In-geom|Inviolable Faith|Irontoe Mudsputters|Ivory Tower|Jace's Hammer of Vigilance|Jang's Envelopment|Jawbreaker|Jekangbord|Jeram's Bracers|Johanna's Argument|Justice Lantern|Justinian's Mercy|Karlei's Point|Kassar's Retribution|Kekegi's Unbreakable Spirit|K'mar Tenclip|Kotuur's Brace|Krede's Flame|Kridershot|Kymbo's Gold|Kyoshiro's Blade|Kyoshiro's Soul|Lacuni Prowlers|Lakumba's Ornament|Lamentation|Last Breath|Lefebvre's Soliloquy|Leonine Bow of Hashir|Leoric's Crown|Leoric's Signet|Lianna's Wings|Lidless Wall|Light of Grace|Lion's Claw|Logan's Claw|Lord Greenstone's Fan|Lut Socks|Madawc's Sorrow|Madstone|Magefist|Maloth's Focus|Manald Heal|Manticore|Mantle of Channeling|Mara's Kaleidoscope|Mask of Jeram|Maximus|Mempo of Twilight|Messerschmidt's Reaver|Meticulous Bolts|Mirrorball|Monster Hunter|Moonlight Ward|Mordullu's Promise|Myken's Ball of Hate|Nagelring|Nailbiter|Neanderthal|Nemesis Bracers|Nilfur's Boast|Nutcracker|Oathkeeper|Obsidian Ring of the Zodiac|Oculus Ring|Odyn Son|Odyssey's End|Omnislash|Omryn's Chain|Orb of Infinite Depth|Ouroboros|Pig Sticker|Pinto's Pride|Pledge of Caldeum|Pox Faulds|Pride of Cassius|Primordial Soul|Promise of Glory|Pus Spitter|Puzzle Ring|Quetzalcoatl|Rabid Strike|Rakoff's Glass of Life|Ramaladni's Gift|Ranslor's Folly|Razor Strop|Rechel's Ring of Larceny|Relic of Akarat|Remorseless|Rhen'ho Flayer|Ribald Etchings|Rimeheart|Ring of Emptiness|Rivera Dancers|Rogar's Huge Stone|Rondal's Locket|Sacred Harness|Sacred Harvester|Saffron Wrap|Sash of Knives|Scarbringer|Schaefer's Hammer|Scourge|Scrimshaw|Sebor's Nightmare|See No Evil|Serpent's Sparker|Sever|Shackles of the Invoker|Shard of Hate|Shi Mizu's Haori|Shield of Fury|Shukrani's Triumph|Sin Seekers|Skeleton Key|Skorn|Skular's Salvation|Skull Grasp|Skull of Resonance|Sky Splitter|Skycutter|Skywarden|Sledge Fist|Sledge of Athskeleng|Slipka's Letter Opener|Slorak's Madness|Smoking Thurible|Solanium|Spaulders of Zakara|Spines of Seething Hatred|Spirit Guards|Split Tusk|Squirt's Necklace|St. Archew's Gage|Staff of Chiroptera|Staff of Kyro|Stalgard's Decimator|Standoff|Starfire|Starmetal Kukri|Stone Gauntlets|Stone of Jordan|Storm Crow|Stormshield|String of Ears|Strongarm Bracers|Sublime Conviction|Sun Keeper|SuWong Diviner|Swamp Land Waders|Swiftmount|Sword of Ill Will|Talisman of Aranoch|Tasker and Theo|Telranden's Hand|The Ancient Bonesaber of Zumakalis|The Barber|The Broken Staff|The Burning Axe of Sankis|The Butcher's Sickle|The Cloak of the Garwulf|The Crudest Boots|The Dagger of Darts|The Demon's Demise|The Ess of Johan|The Executioner|The Eye of the Storm|The Final Witness|The Fist of Az'Turrasq|The Flavor of Time|The Flow of Eternity|The Furnace|The Gavel of Judgment|The Gidbinn|The Grand Vizier|The Grandfather|The Grin Reaper|The Laws of Seph|The Magistrate|The Mind's Eye|The Mortal Drama|The Ninth Cirri Satchel|The Oculus|The Paddle|The Raven's Wing|The Shame of Delsere|The Short Man's Finger|The Smoldering Core|The Spider Queen's Grasp|The Star of Azkaranth|The Sultan of Blinding Sand|The Swami|The Tall Man's Finger|The Three Hundredth Spear|The Tormentor|The Twisted Sword|The Undisputed Champion|The Witching Hour|The Zweihander|Thing of the Deep|Thunderfury Blessed Blade of the Windseeker|Thundergod's Vigor|Tiklandian Visage|Trag'Oul Coils|Triumvirate|Tyrael's Might|Tzo Krin's Gaze|Uhkapian Serpent|Unity|Unrelenting Phalanx|Unstable Scepter|Uskang|Vadim's Surge|Valla's Bequest|Valthek's Rebuke|Vambraces of Sescheron|Velvet Camaral|Vengeful Wind|Vigilance|Vigilante Belt|Vile Hive|Vile Ward|Visage of Giyua|Visage of Gunes|Voo's Juicer|Vo'Toyias Spiker|Wand of Woh|Warhelm of Kassar|Warmonger|Warstaff of General Quang|Warzechian Armguards|Wildwood|Wilken's Reach|Windforce|Winter Flurry|Wizardspike|Wojahnni Assaulter|Won Khim Lau|Wormwood|Wraps of Clarity|Wrath of the Bone King|Wyrdward|Xephirian Amulet|Yang's Recurve|Zoey's Secret|Mad Monarch’s Scepter|Ring of Royal Grandeur|Pauldrons of the Skeleton King|Golden Gorget of Leoric|Sanguinary Vambraces|Cloak of Deception|Illusory Boots|Gloves of Worship|Coven’s Criterion|Avarice Band|Burst of Wrath|Boots of Disregard|Pride’s Fall|Envious Blade|Insatiable Belt|Overwhelming Desire|Death’s Bargain|Soulsmasher|Helltrapper|Salvation|Pandemonium Loop|
+">
+	<ground_label enabled="1" on_screen="1" off_screen="1" text="default">
+		<body enabled="1" color="160,0,0,0" stroke="0" />
+		<text font_family="verdana" font_size="9" font_bold="1" font_color="255,255,160,0" font_shadow="1">
+			<custom_shadow enabled="1" heavy="1" color="200,0,0,0" />
+		</text>
+	</ground_label>
+</Ancient_Legendary_Label>
+
+
+<!-- change Set labels to green // (does not contain crafted items, potions and sets lower than 70) -->
+<Set_Label enabled="1" keywords="legendary_regular,unidentified,groups=
+Accursed Visage|Arachyr's Carapace|Arachyr's Claws|Arachyr's Legs|Arachyr's Mantle|Arachyr's Stride|Arachyr's Visage|Blackthorne's Duncraig Cross|Blackthorne's Jousting Mail|Blackthorne's Notched Belt|Blackthorne's Spurs|Blackthorne's Surcoat|Breastplate of Akkhan|Bul-Kathos's Solemn Vow|Bul-Kathos's Warrior Blood|Burden of the Invoker|Cage of the Hellborn|Chantodo's Force|Chantodo's Will|Crown of the Invoker|Crown of the Light|Cuirass of the Wastes|Cuisses of Akkhan|Danetta's Revenge|Danetta's Spite|Dashing Pauldrons of Despair|Eight-Demon Boots|Eyes of the Earth|Fiendish Grips|Fierce Gauntlets|Firebird's Breast|Firebird's Down|Firebird's Eye|Firebird's Pinions|Firebird's Plume|Firebird's Talons|Firebird's Tarsi|Fists of Thunder|Flail of the Charge|Focus|Foundation of the Earth|Foundation of the Light|Gauntlet of the Wastes|Gauntlets of Akkhan|Harness of Truth|Heart of the Crashing Wave|Heart of the Light|Hell Walkers|Helltooth Gauntlets|Helltooth Greaves|Helltooth Leg Guards|Helltooth Mantle|Helltooth Mask|Helltooth Tunic|Helm of Akkhan|Helm of the Wastes|Immortal King's Boulder Breaker|Immortal King's Eternal Reign|Immortal King's Irons|Immortal King's Stature|Immortal King's Stride|Immortal King's Tribal Binding|Immortal King's Triumph|Inna's Favor|Inna's Hold|Inna's Radiance|Inna's Reach|Inna's Sandals|Inna's Temperance|Inna's Vast Expanse|Jade Harvester's Courage|Jade Harvester's Joy|Jade Harvester's Mercy|Jade Harvester's Peace|Jade Harvester's Swiftness|Jade Harvester's Wisdom|Krelm's Buff Belt|Leg Guards of Mystery|Litany of the Undaunted|Little Rogue|Manajuma's Carving Knife|Manajuma's Gory Fetch|Mantle of the Upside-Down Sinners|Marauder's Carapace|Marauder's Encasement|Marauder's Gloves|Marauder's Spines|Marauder's Treads|Marauder's Visage|Mask of the Searing Sky|Mountain of the Light|Natalya's Bloody Footprints|Natalya's Embrace|Natalya's Leggings|Natalya's Reflection|Natalya's Sight|Natalya's Slayer|Natalya's Touch|Pauldrons of Akkhan|Pauldrons of the Wastes|Pride of the Invoker|Pull of the Earth|Raekor's Breeches|Raekor's Burden|Raekor's Heart|Raekor's Striders|Raekor's Will|Raekor's Wraps|Renewal of the Invoker|Restraint|Roland's Bearing|Roland's Determination|Roland's Grasp|Roland's Mantle|Roland's Stride|Roland's Visage|Sabaton of the Wastes|Sabatons of Akkhan|Scales of the Dancing Serpent|Shenlong's Fist of Legend|Shenlong's Relentless Assault|Shield of the Steed|Shrouded Mask|Spires of the Earth|Spirit of the Earth|Striders of Destiny|Sunwuko's Balance|Sunwuko's Crown|Sunwuko's Leggings|Sunwuko's Paws|Sunwuko's Shines|Sunwuko's Soul|Tal Rasha's Allegiance|Tal Rasha's Brace|Tal Rasha's Grasp|Tal Rasha's Guise of Wisdom|Tal Rasha's Relentless Pursuit|Tal Rasha's Stride|Tal Rasha's Unwavering Glare|Tasset of the Wastes|The Compass Rose|The Shadow's Bane|The Shadow's Burden|The Shadow's Coil|The Shadow's Grasp|The Shadow's Heels|The Shadow's Mask|The Slanderer|The Traveler's Pledge|The Wailing Host|Towers of the Light|Uliana's Burden|Uliana's Destiny|Uliana's Fury|Uliana's Heart|Uliana's Spirit|Uliana's Strength|Unholy Plates|Unsanctified Shoulders|Vyr's Astonishing Aura|Vyr's Fantastic Finery|Vyr's Grasping Gauntlets|Vyr's Proud Pauldrons|Vyr's Sightless Skull|Vyr's Swaggering Stance|Weight of the Earth|Will of the Light|Zeal of the Invoker|Zunimassa's Cloth|Zunimassa's Finger Wraps|Zunimassa's Marrow|Zunimassa's Pox|Zunimassa's String of Skulls|Zunimassa's Trail|Zunimassa's Vision|Krelm's Buff Bracers|
+">
+	<ground_label enabled="1" on_screen="1" off_screen="1" text="default">
+		<body enabled="1" color="160,0,0,0" stroke="0" />
+		<text font_family="verdana" font_size="9" font_bold="0" font_color="255,0,255,0" font_shadow="1" >
+			<custom_shadow enabled="1" heavy="1" color="200,0,0,0" />
+		</text>
+	</ground_label>
+</Set_Label>
+
+
+<!-- change Ancient Legendary Set labels to green // (does not contain crafted items, potions and sets lower than 70) -->
+<Ancient_Set_Label enabled="1" keywords="legendary_ancient,unidentified,groups=
+Accursed Visage|Arachyr's Carapace|Arachyr's Claws|Arachyr's Legs|Arachyr's Mantle|Arachyr's Stride|Arachyr's Visage|Blackthorne's Duncraig Cross|Blackthorne's Jousting Mail|Blackthorne's Notched Belt|Blackthorne's Spurs|Blackthorne's Surcoat|Breastplate of Akkhan|Bul-Kathos's Solemn Vow|Bul-Kathos's Warrior Blood|Burden of the Invoker|Cage of the Hellborn|Chantodo's Force|Chantodo's Will|Crown of the Invoker|Crown of the Light|Cuirass of the Wastes|Cuisses of Akkhan|Danetta's Revenge|Danetta's Spite|Dashing Pauldrons of Despair|Eight-Demon Boots|Eyes of the Earth|Fiendish Grips|Fierce Gauntlets|Firebird's Breast|Firebird's Down|Firebird's Eye|Firebird's Pinions|Firebird's Plume|Firebird's Talons|Firebird's Tarsi|Fists of Thunder|Flail of the Charge|Focus|Foundation of the Earth|Foundation of the Light|Gauntlet of the Wastes|Gauntlets of Akkhan|Harness of Truth|Heart of the Crashing Wave|Heart of the Light|Hell Walkers|Helltooth Gauntlets|Helltooth Greaves|Helltooth Leg Guards|Helltooth Mantle|Helltooth Mask|Helltooth Tunic|Helm of Akkhan|Helm of the Wastes|Immortal King's Boulder Breaker|Immortal King's Eternal Reign|Immortal King's Irons|Immortal King's Stature|Immortal King's Stride|Immortal King's Tribal Binding|Immortal King's Triumph|Inna's Favor|Inna's Hold|Inna's Radiance|Inna's Reach|Inna's Sandals|Inna's Temperance|Inna's Vast Expanse|Jade Harvester's Courage|Jade Harvester's Joy|Jade Harvester's Mercy|Jade Harvester's Peace|Jade Harvester's Swiftness|Jade Harvester's Wisdom|Krelm's Buff Belt|Leg Guards of Mystery|Litany of the Undaunted|Little Rogue|Manajuma's Carving Knife|Manajuma's Gory Fetch|Mantle of the Upside-Down Sinners|Marauder's Carapace|Marauder's Encasement|Marauder's Gloves|Marauder's Spines|Marauder's Treads|Marauder's Visage|Mask of the Searing Sky|Mountain of the Light|Natalya's Bloody Footprints|Natalya's Embrace|Natalya's Leggings|Natalya's Reflection|Natalya's Sight|Natalya's Slayer|Natalya's Touch|Pauldrons of Akkhan|Pauldrons of the Wastes|Pride of the Invoker|Pull of the Earth|Raekor's Breeches|Raekor's Burden|Raekor's Heart|Raekor's Striders|Raekor's Will|Raekor's Wraps|Renewal of the Invoker|Restraint|Roland's Bearing|Roland's Determination|Roland's Grasp|Roland's Mantle|Roland's Stride|Roland's Visage|Sabaton of the Wastes|Sabatons of Akkhan|Scales of the Dancing Serpent|Shenlong's Fist of Legend|Shenlong's Relentless Assault|Shield of the Steed|Shrouded Mask|Spires of the Earth|Spirit of the Earth|Striders of Destiny|Sunwuko's Balance|Sunwuko's Crown|Sunwuko's Leggings|Sunwuko's Paws|Sunwuko's Shines|Sunwuko's Soul|Tal Rasha's Allegiance|Tal Rasha's Brace|Tal Rasha's Grasp|Tal Rasha's Guise of Wisdom|Tal Rasha's Relentless Pursuit|Tal Rasha's Stride|Tal Rasha's Unwavering Glare|Tasset of the Wastes|The Compass Rose|The Shadow's Bane|The Shadow's Burden|The Shadow's Coil|The Shadow's Grasp|The Shadow's Heels|The Shadow's Mask|The Slanderer|The Traveler's Pledge|The Wailing Host|Towers of the Light|Uliana's Burden|Uliana's Destiny|Uliana's Fury|Uliana's Heart|Uliana's Spirit|Uliana's Strength|Unholy Plates|Unsanctified Shoulders|Vyr's Astonishing Aura|Vyr's Fantastic Finery|Vyr's Grasping Gauntlets|Vyr's Proud Pauldrons|Vyr's Sightless Skull|Vyr's Swaggering Stance|Weight of the Earth|Will of the Light|Zeal of the Invoker|Zunimassa's Cloth|Zunimassa's Finger Wraps|Zunimassa's Marrow|Zunimassa's Pox|Zunimassa's String of Skulls|Zunimassa's Trail|Zunimassa's Vision|Krelm's Buff Bracers|
+">
+	<ground_label enabled="1" on_screen="1" off_screen="1" text="default">
+		<body enabled="1" color="160,0,0,0" stroke="0" />
+		<text font_family="verdana" font_size="9" font_bold="1" font_color="255,0,255,0" font_shadow="1" >
+			<custom_shadow enabled="1" heavy="1" color="200,0,0,0" />
+		</text>
+	</ground_label>
+</Ancient_Set_Label>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	RARE / MAGIC / WHITE	-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- mark Rare items (Yellow items) on minimap & ground circle -->
+<Rare_Items enabled="1" speech_text="" keywords="rare_only">
+	<map_shape enabled="1" radius="2" ping_speed="0" shape="circle" color="255,255,255,0" stroke="1" />
+	<ground_circle enabled="1" radius="1.0" ping_speed="0" color="200,255,255,0" stroke="1.1" />
+	<ground_label enabled="0" on_screen="0" off_screen="1" text="default" >
+        <body enabled="0" color="160,0,0,0" stroke="0" />
+		<text font_family="verdana" font_size="7.0" font_bold="0" font_color="255,255,255,0" font_shadow="0" />
+	</ground_label>
+</Rare_Items>
+
+<!-- mark Magic items (Blue items) -->
+<Magic_Items enabled="1" speech_text="" keywords="magic_only">
+	<map_shape enabled="0" radius="2" ping_speed="0" shape="circle" color="255,0,100,255" stroke="1" />
+	<ground_circle enabled="1" radius="1" color="180,100,100,240" stroke="3" />
+</Magic_Items>
+
+<!-- mark White and Grey items / only Weapons and Armors -->
+<White_Items enabled="1" speech_text="" keywords="white_only,groups=weapons|armors">
+	<map_shape enabled="0" radius="2" ping_speed="0" shape="circle" color="200,200,200,200" stroke="1" />
+	<ground_circle enabled="1" radius="1" color="150,220,220,220" stroke="3" />
+</White_Items>
+
+
+<!-- Mark specific white item drops on ground & map
+
+	Groups: 1h,2h,weapons
+
+	Axe 1h				Dire Axe
+	Axe 2h				Flesh Render
+	Bow					Doubleshot
+	Crossbow			Oxybeles
+	Dagger				Punyal
+	Mace 1h				Skullsplitter
+	Mace 2h				Persuader
+	Polearm				Trishula
+	Spear				Disemboweler
+	Staff				Kerykeion
+	Sword 1h			Tsunami Blade
+	Sword 2h			Kingslayer
+
+	Ceremonial Knife	Tecpatl
+	Daibo				Whirlwind Staff
+	Fist Weapon			Suwaiya
+	Flail 1h			Grandfather Flail
+	Flail 2h			Angelic Grand Flail
+	Hand Crossbows		Penetrator
+	Mighty Weapon 1h	Limb Cleaver
+	Mighty Weapon 2h 	Steppes Smasher
+	Wand				Diabolic Wand	-->
+
+<!-- Mark specific white item drops on ground & map -->
+<Specific_White_Drops enabled="0" speech_text="" keywords="white_only,groups=
+Mighty Weapon
+Dire Axe|
+Flesh Render|
+Doubleshot|
+Oxybeles|
+Punyal|
+Skullsplitter|
+Persuader|
+Trishula|
+Disemboweler|
+Kerykeion|
+Tsunami Blade|
+Kingslayer|
+Tecpatl|
+Whirlwind Staff|
+Suwaiya|
+Grandfather Flail|
+Angelic Grand Flail|
+Penetrator|
+Limb Cleaver|
+Steppes Smasher|
+Diabolic Wand|
+">
+	<map_shape enabled="1" radius="5" ping_speed="0" shape="circle" color="255,255,0,0" stroke="3" />
+	<ground_circle enabled="1" radius="2.0" ping_speed="0" color="200,255,0,0" stroke="4" />
+	<ground_label enabled="1" on_screen="0" off_screen="1" text="default">
+		<body enabled="1" color="160,255,0,0" stroke="0" />
+		<text font_family="verdana" font_size="7.0" font_bold="0" font_color="255,255,255,255" font_shadow="0" />
+	</ground_label>
+</Specific_White_Drops>
+
+
+<!-- Mark specific rare item drops on ground & map -->
+<Specific_Rare_Drops enabled="0" speech_text="" keywords="rare_only,groups=
+Dire Axe|
+Flesh Render|
+Doubleshot|
+Oxybeles|
+Punyal|
+Skullsplitter|
+Persuader|
+Trishula|
+Disemboweler|
+Kerykeion|
+Tsunami Blade|
+Kingslayer|
+Tecpatl|
+Whirlwind Staff|
+Suwaiya|
+Grandfather Flail|
+Angelic Grand Flail|
+Penetrator|
+Limb Cleaver|
+Steppes Smasher|
+Diabolic Wand|
+">
+	<map_shape enabled="1" radius="5" ping_speed="0" shape="circle" color="255,255,0,0" stroke="3" />
+	<ground_circle enabled="1" radius="2.0" ping_speed="0" color="200,255,0,0" stroke="4" />
+	<ground_label enabled="1" on_screen="0" off_screen="1" text="default">
+		<body enabled="1" color="160,255,0,0" stroke="0" />
+		<text font_family="verdana" font_size="7.0" font_bold="0" font_color="255,255,255,255" font_shadow="0" />
+	</ground_label>
+</Specific_Rare_Drops>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	COSMETICS DROPS			-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- Mark Cosmetic item drops on ground & map -->
+<Cosmetics_Drops enabled="1" speech_text="OUTRAGEOUS" extra_decorators="deco_out/ground_circle" keywords="groups=
+Aidan's Revenge|
+Amberwing|
+Blaze|
+Buddy|
+Bones|
+The Bumble|
+Charlotte|
+Cosmic Wings|
+Crossbow of Corvus|
+That Which Must Not Be Named|
+Dark Bat|
+Deadeye's Mace|
+Falcon's Wings|
+Flail of Carnage|
+Friendly Gauntlet|
+Galthrak the Unhinged|
+Ghoul King's Blade|
+God Butcher|
+Grunkk|
+Hand of Despair|
+Haunting Hannah|
+Helm of the Cranial Crustacean|
+Humbart Wessel|
+Kanai's Scorn|
+King Maker|
+Lachdanan's Stormshield|
+Lady Morthanlu|
+Lamb|
+Liv Moore|
+Lord Culsu's Wings|
+Mace of the Crows|
+Malfeasance|
+Man Prodder|
+Ms. Madeleine|
+Overseer Lady Josephine|
+Panther's Claw|
+Queen of the Succubi|
+Quinquennial Sword|
+Whimsyshire|
+Second Quinquennial Sword|
+Star Helm|
+Star Pauldrons|
+Steffon's Heavy Lance|
+Sungjae's Fury|
+Templar's Chain|
+The Mimic|
+The Que'Hegan's Will|
+The Reaper's Kiss|
+The Spirit of the Zakarum|
+The Stomach|
+Unihorn|
+Wings of Kokabiel|
+">
+	<map_shape enabled="1" radius="2" ping_speed="0" shape="circle" color="255,255,0,255" stroke="2" />
+	<ground_circle enabled="1" radius="1.4" ping_speed="0" color="200,255,0,255" stroke="3" />
+	<deco_out enabled="1" radius="1.8" ping_speed="0" color="200,0,255,255" stroke="4" />
+	<ground_label enabled="1" on_screen="0" off_screen="1" text="default">
+		<body enabled="1" color="180,255,0,255" stroke="0" />
+		<text font_family="verdana" font_size="7.0" font_bold="0" font_color="255,255,255,255" font_shadow="0" />
+	</ground_label>
+</Cosmetics_Drops>
+
+
+<!-- Mark Cosmetic item drops on ground & map
+451010	P5_Cosmetic_Pet_babysiege_01	Grunkk
+451054	P5_Cosmetic_Pet_bladedsoul_01	Galthrak the Unhinged
+451052	P5_Cosmetic_Pet_cowking_01	That Which Must Not be Named
+451050	P5_Cosmetic_Pet_crawlingHand_03	Friendly Gauntlet
+451014	P5_Cosmetic_Pet_fallenHound_04	Buddy
+451026	P5_Cosmetic_Pet_FloatingSkull_01	Blaze
+451032	P5_Cosmetic_Pet_FloatingSkull_02	Humbart Wessel
+451016	P5_Cosmetic_Pet_ghost_01	Haunting Hannah
+451008	P5_Cosmetic_Pet_gluttony_01	The Stomach
+451018	P5_Cosmetic_Pet_goatman_melee_02	Lady Morthanlu
+451020	P5_Cosmetic_Pet_hoodednightmare_01	Malfeasance
+451022	P5_Cosmetic_Pet_mimic_01	The Mimic
+451024	P5_Cosmetic_Pet_nightmare_02	Unihorn
+
+451037	P5_Cosmetic_Pet_spider_01	Charlotte
+451041	P5_Cosmetic_Pet_squire	Lamb
+451043	P5_Cosmetic_Pet_succubus_01	Queen of the Succubi
+451045	P5_Cosmetic_Pet_teddyBear_04	Overseer Lady Josephine
+451048	P5_Cosmetic_Pet_VoodooDoll_01	Ms. Madeleine
+451056	P5_Cosmetic_Pet_yeti_01	The Bumble
+451058	P5_Cosmetic_Pet_zombie_01	Liv Moore
+451109	P5_Cosmetic_Wings_bat_04	Dark Bat
+451107	P5_Cosmetic_wings_bat_07	Osseous Grasp ??????
+451111	P5_Cosmetic_Wings_bfly_01	Lord Culsu's Wings
+451113	P5_Cosmetic_Wings_bfly_03	Wings of Kokabiel
+451105	P5_Cosmetic_Wings_bfly_07	Cosmic Wings
+451115	P5_Cosmetic_Wings_bird	Falcon's Wings
+
+331907	x1_Sword_norm_unique_flippy_22		Item	Amberwing|
+445357	p4_Shield_norm_unique_flippy_01		Item	Lachdanan's Stormshield|
+450341	p4_scythe_norm_base_flippy_01		Item	The Reaper's Kiss|
+
+-->
+<!-- <Cosmetics_Drops2 enabled="1" speech_text="OUTRAGEOUS" extra_decorators="deco_out/ground_circle" keywords="snos=
+451010|451054|451052|451050|451014|451026|451032|451016|451008|451018|451020|451022|451024|
+451037|451041|451043|451045|451048|451056|451058|451109|451107|451111|451113|451105|451115|
+331907|445357|450341
+">
+	<map_shape enabled="1" radius="2" ping_speed="0" shape="circle" color="255,255,0,255" stroke="2" />
+	<ground_circle enabled="1" radius="1.4" ping_speed="0" color="200,255,0,255" stroke="3" />
+	<deco_out enabled="1" radius="1.8" ping_speed="0" color="200,0,255,255" stroke="4" />
+	<ground_label enabled="1" on_screen="0" off_screen="1" text="default">
+		<body enabled="1" color="180,255,0,255" stroke="0" />
+		<text font_family="verdana" font_size="7.0" font_bold="0" font_color="255,255,255,255" font_shadow="0" />
+	</ground_label>
+</Cosmetics_Drops2> -->
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	MATS & PARTS			-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	
+<!-- mark Uber Items/Keys/Parts, Greater Rift Keystone -->
+	<!-- Rift Keystone Fragment: 323722	-->
+<Uber_GR_Keystone enabled="1" speech_text="" keywords="groups=uber|riftkeystone">
+	<map_shape enabled="1" radius="8" ping_speed="333" shape="triangle-rotate" color="255,255,160,0" stroke="3" />
+	<ground_circle enabled="1" radius="1.50" ping_speed="0" color="200,255,160,0" stroke="5" />
+	<ground_label enabled="1" on_screen="0" off_screen="1" text="default">
+		<body enabled="1" color="160,0,0,0" stroke="0" />
+		<text font_family="verdana" font_size="7.0" font_bold="0" font_color="255,255,160,0" font_shadow="0" />
+	</ground_label>
+<!-- 	<ground_label enabled="1" on_screen="1" off_screen="1" offset_z="-3" use_bottom="0" text="default">
+		<body enabled="1" color="100,255,100,0" stroke="0" />
+		<text font_family="verdana" font_size="7.5" font_bold="0" font_color="200,255,255,100" font_shadow="0" />
+	</ground_label> -->
+</Uber_GR_Keystone>
+
+<!-- mark Higher-Tier Crafting Materials (Forgotten Soul|Death's Breath) -->
+<Crafting_Mats_High enabled="1" speech_text="" extra_decorators="deco_out/ground_circle" keywords="groups=Forgotten Soul|Death's Breath">
+	<map_shape enabled="1" radius="2" ping_speed="0" shape="circle" color="255,250,150,140" stroke="2" />
+	<ground_circle enabled="1" radius="0.8" ping_speed="0" color="180,0,220,160" stroke="6.5" />
+	<deco_out enabled="1" radius="1.10" ping_speed="0" color="200,255,160,0" stroke="5.0" />
+	<ground_label enabled="1" on_screen="0" off_screen="1" text="default">
+		<body enabled="1" color="120,0,0,0" stroke="0" />
+		<text font_family="verdana" font_size="7.0" font_bold="1" font_color="255,0,220,160" font_shadow="0" />
+	</ground_label>
+</Crafting_Mats_High>
+
+<!-- mark Lower-Tier Crafting Materials (Veiled Crystal|Arcane Dust|Reusable Parts) -->
+	<!-- All Crafting Mats (Forgotten Soul, Death's Breath, Veiled Crystal, Arcane Dust): 137958 -->
+<Crafting_Mats_Low enabled="1" speech_text="" extra_decorators="deco1/ground_circle" keywords="groups=Veiled Crystal|Arcane Dust|Reusable Parts">
+	<map_shape enabled="1" radius="2" ping_speed="0" shape="circle" color="180,200,200,200" stroke="2" />
+	<ground_circle enabled="1" radius="1" ping_speed="0" color="180,255,255,0" stroke="3.5" />
+	<deco1 enabled="1" radius="0.8" ping_speed="0" color="180,0,0,255" stroke="2.5" />
+</Crafting_Mats_Low>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	GEMS & SHARDS	     	-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- mark Gem drops on minimap & ground:
+gems (All) / gems_high (Flawless Square to Marquise) / gems_high_x1 (Imperial+)
+Marquise Gems: Amethyst 437414, Diamond 437481, Emerald 437448, Ruby 437459, Topaz 437469
+Imperial Gems: Amethyst 437415, Diamond 437482, Emerald 437449, Ruby 437460, Topaz 437470
+-->
+<Gems enabled="1" speech_text="" keywords="groups=gems_high|gems_high_x1">
+	<map_shape enabled="1" radius="2" ping_speed="0" shape="circle" color="255,250,150,140" stroke="2" />
+	<ground_circle enabled="1" radius="1.25" color="255,255,150,140" stroke="4.5" />
+</Gems>
+
+<!-- mark Blood Shard drops on minimap & ground: devilshand
+359504	HoradricRelic	Blood Shard / keywords="snos=359504" -->
+<Blood_Shards enabled="1" speech_text="" keywords="groups=devilshand">
+	<map_shape enabled="1" radius="1" ping_speed="0" shape="circle" color="255,230,0,0" stroke="0" />
+	<ground_circle enabled="1" radius="1" color="120,50,225,225" />
+	<ground_label enabled="1" on_screen="1" off_screen="1" offset_z="-2" use_bottom="0" text="Blood Shard">
+		<body enabled="1" color="120,230,0,0" stroke="0" />
+		<text font_family="verdana" font_size="7.5" font_bold="0" font_color="200,255,255,255" font_shadow="0" />
+	</ground_label>
+</Blood_Shards>
+
+
+	</items>
+
+
+<!-- =========================	-->
+<!--	ACTORS					-->
+<!-- =========================	-->
+
+	<actors>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	HP GLOBES		     	-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- mark HP Globe drops on minimap & ground / Health Globe: 4267 / Rainbow_HP 209093 (snos=4267|209093) -->
+	<!-- blinking minimap dot / small green circle on ground -->
+<HP_Globe enabled="1" speech_text="" keywords="healthglobe" >
+	<map_shape enabled="1" radius="1.5" ping_speed="300" shape="circle" color="200,0,225,200" stroke="0" />
+	<deco1 enabled="1" radius="2.0" ping_speed="300" shape="circle" color="200,0,0,0" stroke="0.2" />
+	<ground_circle enabled="1" radius="0.75" color="150,100,200,100" />
+</HP_Globe>
+
+<!-- add timer to HP Globe drops on ground -->
+<HP_Globe_Timer enabled="1" keywords="healthglobe">
+	<!-- value_format can be 'dyn', 'F0', 'F1' -->
+	<ground_label enabled="1" count_down="61" on_screen="1" off_screen="0" use_bottom="0" offset_z="2.2" text="{value}" value_format="dyn">
+		<body enabled="0" color="200,0,0,0" stroke="0" />
+		<text enabled="1" font_family="verdana" font_size="7.5" font_color="160,255,255,255" font_bold="1" font_shadow="1">
+			<custom_shadow enabled="1" heavy="1" color="255,0,0,0" />
+		</text>
+	</ground_label>
+	<ground_timer enabled="1" count_down="61" radius="12" use_bottom="0" offset_z="2.2" >
+		<empty enabled="1" color="160,0,0,0" stroke="0" />
+		<fill enabled="1" color="160,255,0,0" stroke="0" />
+	</ground_timer>
+</HP_Globe_Timer>
+
+
+<!-- mark HP Globe drops on minimap & ground (/w Reaper's Wraps bracers equipped) -->
+	<!-- Health Globes restore 25–30% of your primary resource. -->
+	<!-- faster blinking, thin black outline on minimap dot / black ring inside green circle on ground -->
+<HP_Globe_RW enabled="1" speech_text="" extra_decorators="deco1/map_shape,deco2/ground_circle" keywords="snos=4267|209093">
+	<map_shape enabled="1" radius="2.0" ping_speed="300" shape="circle" color="200,0,225,200" stroke="0" />
+	<deco1 enabled="1" radius="3.0" ping_speed="300" shape="circle" color="200,0,0,0" stroke="0.2" />
+	<ground_circle enabled="1" radius="1.0" color="180,100,200,100" stroke="0" />
+	<deco2 enabled="1" radius="0.7" color="255,0,0,0" stroke="1.1" />
+	<conditions enabled="1" active_buffs="318818/0" />
+</HP_Globe_RW>
+
+<!-- mark HP Globe drops on minimap & ground (/w DH's Blood Vengeance skill equipped) -->
+	<!-- Gain 30 Hatred and 3 Discipline when you are healed by a Health Globe. -->
+	<!-- faster blinking, thin black outline on minimap dot / red circle inside green circle on ground --> 
+<HP_Globe_BV enabled="1" speech_text="" extra_decorators="deco1/map_shape,deco2/ground_circle" keywords="snos=4267|209093">
+	<map_shape enabled="1" radius="2.0" ping_speed="300" shape="circle" color="200,0,225,200" stroke="0" />
+	<deco1 enabled="1" radius="3.0" ping_speed="300" shape="circle" color="200,0,0,0" stroke="0.2" />
+	<ground_circle enabled="1" radius="0.7" color="180,100,200,100" stroke="0" />
+	<deco2 enabled="1" radius="0.40" color="200,255,0,0" stroke="0" />
+	<conditions enabled="1" active_buffs="155714/0" />
+</HP_Globe_BV>
+
+<!-- enable CLICKABLES (w/ Razor Strop belt buff) -->
+	<!-- Picking up a Health Globe releases an explosion that deals X% weapon damage as Fire to enemies within 20 yards. -->
+	<!-- faster blinking, thin black outline on minimap dot / red circle outside green circle on ground -->
+<HP_Globe_RS enabled="1" speech_text="" extra_decorators="deco1/map_shape,deco2/ground_circle" keywords="snos=4267|209093">
+	<map_shape enabled="1" radius="2.0" ping_speed="300" shape="circle" color="200,0,225,200" stroke="0" />
+	<deco1 enabled="1" radius="3.0" ping_speed="300" shape="circle" color="200,0,0,0" stroke="0.2" />
+	<ground_circle enabled="1" radius="1.10" color="180,255,0,0" stroke="2.0" />
+	<deco2 enabled="0" radius="0.50" color="255,255,0,0" stroke="2" />
+	<conditions enabled="1" active_buffs="318241/0" />
+</HP_Globe_RS>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	ORBS				    -->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- mark Power Orb drops on minimap & ground / Power Globe: 301283 -->
+<Power_Orb enabled="1" speech_text="" keywords="power_globe">
+	<map_shape enabled="1" radius="5.0" ping_speed="300" shape="circle" color="255,240,240,120" stroke="0" />
+	<ground_circle enabled="1" radius="0.75" color="150,50,225,225" />
+	<ground_label enabled="1" on_screen="0" off_screen="1" text="default">
+		<body enabled="1" color="255,240,240,120" stroke="0" />
+		<text font_family="verdana" font_size="7" font_color="255,0,0,0" font_bold="1" font_shadow="0" />
+	</ground_label>
+</Power_Orb>
+
+<!-- mark Rift Orb drops on minimap & ground / Rift Orb: 401751 -->
+<Rift_Orb enabled="1" speech_text="" keywords="rift_orb">
+	<map_shape enabled="1" radius="5.0" ping_speed="300" shape="circle" color="255,255,0,255" stroke="0" />
+	<ground_circle enabled="1" radius="0.9" color="150,50,225,225" />
+	<ground_label enabled="1" on_screen="1" off_screen="1" text="O R B">
+		<body enabled="1" color="255,230,0,0" stroke="0" />
+		<text font_family="verdana" font_size="7.5" font_bold="0" font_color="255,255,255,255" font_shadow="0" />
+	</ground_label>
+</Rift_Orb>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	GOLD & GIFTS		    -->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- mark Gold Piles on minimap --> 
+<Gold_Piles enabled="1" speech_text="" keywords="snos=4311|4312|4313">
+  <map_shape enabled="1" radius="1" ping_speed="0" shape="circle" color="200,255,215,0" stroke="0" />
+</Gold_Piles>
+
+<!-- add distinctive mark and voice to Ramaladni's Gift drop / voice: Ramaala's Gift
+Consumable_Add_Sockets: 405649|(403611 ??) -->
+<Ramaladni_Gift enabled="1" speech_text="nuclear launch detected" keywords="snos=405649|403611">
+	<map_shape enabled="1" radius="8" ping_speed="333" shape="triangle-rotate" color="255,255,160,0" stroke="3" />
+	<ground_circle enabled="1" radius="1.50" ping_speed="0" color="200,255,160,0" stroke="5" />
+</Ramaladni_Gift>
+
+
+	</actors>
+
+
+
+<!-- =========================	-->
+<!--	OVERRIDES				-->
+<!-- =========================	-->
+
+	<overrides>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	DROPPED ITEMS			-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- disable all non-legend dropped items / rare|magic|white (in default theme) / Re-added to <ITEMS> -->
+<Dropped_Items_Template enabled="1" file="ui_default_actors_items" path="templates.items_with_circle.enabled" value="0" />
+
+<!-- enable speech for all non-legend dropped items (in default theme) -->
+<Drop_Items_Speech1 enabled="0" file="ui_default_actors_items" path="templates.items_with_circle.speech_text" value="default" />
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	LEGENDARY ITEMS		    -->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- disable Legendary items tracking (in default theme) / Re-added to <ITEMS> -->
+<Legendary_Drops enabled="1" file="ui_default_actors_items" path="items.legendary.enabled" value="0" />
+
+<!-- disable Ancient Legendary items tracking (in default theme) / Re-added to <ITEMS> -->
+<Ancient_Legendary_Drops enabled="1" file="ui_default_actors_items" path="items.ancient_legendary.enabled" value="0" />
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	ORBS				    -->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- disable Power Globe (in default theme) / Re-added to <ACTORS> -->
+<Power_Globe enabled="1" file="ui_default_actors" path="actors.power_globe.enabled" value="0" />
+
+<!-- disable Rift Orbs drops (in default theme) / Re-added to <ACTORS> -->
+<Rift_Orb enabled="1" file="ui_default_actors" path="actors.rift_orb.enabled" value="0" />
+
+
+	</overrides>
+
+
+</config>

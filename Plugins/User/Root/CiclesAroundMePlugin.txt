@@ -1,0 +1,41 @@
+using SharpDX.Direct2D1;
+using Turbo.Plugins.Default;
+
+namespace Turbo.Plugins.SR
+{
+    public class CiclesAroundMePlugin : BasePlugin, IInGameWorldPainter
+    {
+        public WorldDecoratorCollection SoulHarvestDecorator { get; set; }
+
+        public CiclesAroundMePlugin()
+        {
+            Enabled = true;
+        }
+
+        public override void Load(IController hud)
+        {
+            base.Load(hud);
+
+            SoulHarvestDecorator = new WorldDecoratorCollection(
+                new GroundCircleDecorator(Hud)
+                {
+                    Brush = Hud.Render.CreateBrush(255, 255, 0, 0, 1, DashStyle.Dash),
+                    Radius = 18f
+                }
+            );
+        }
+
+        public void PaintWorld(WorldLayer layer)
+        {
+            if (Hud.Game.IsInTown) return; // not in town
+            if (Hud.Game.Me.HeroClassDefinition.HeroClass != HeroClass.WitchDoctor) return; // only for WD
+
+            var me = Hud.Game.Me;
+            var soulHarvest = me.Powers.GetUsedSkill(Hud.Sno.SnoPowers.WitchDoctor_SoulHarvest);
+            if (soulHarvest != null)
+            {
+                SoulHarvestDecorator.Paint(layer, me, me.FloorCoordinate, null);
+            }
+        }
+    }
+}

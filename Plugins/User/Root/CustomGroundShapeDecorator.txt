@@ -1,0 +1,137 @@
+using System.Collections.Generic;
+using Turbo.Plugins.Default;
+using System;
+
+//gjuz
+
+/*
+usage:  Rotation is optional, RotationSpeed: small int is faster
+
+new CustomGroundShapeDecorator(Hud)
+{
+    Brush = Hud.Render.CreateBrush(255, 255, 255, 255, 5),
+    Radius = 10f,
+    Shape = CustomGroundShape.NStar,
+    HasShadow = true,
+    Vertices = 5,
+    Angle = 45f,
+    SkipVertices = 1,
+    Rotation = false,
+    RotationSpeed = 30
+}
+
+more examples:
+	triangle: Vertices = 3
+	square: Vertices = 4
+	cross or plus: Vertices = 4, SkipVertices = 2
+	pentagon: Vertices = 5
+	pentagram: Vertices = 5, SkipVertices = 2, Angle = 45f
+	5-Star: Vertices = 5, SkipVertices = 2, Angle = 9f
+	2 trinagles: Vertices = 6, SkipVertices = 2
+	octagon: Vertices = 8
+	2 squares: Vertices = 8, SkipVertices = 2
+	3 triangles: Vertices = 9, SkipVertices = 3
+*/
+
+
+namespace Turbo.Plugins.User.Root
+{
+	public enum CustomGroundShape { NStar }
+
+	// this is not a plugin, just a helper class to display labels on the ground
+	public class CustomGroundShapeDecorator : IWorldDecoratorWithRadius
+	{
+		public bool Enabled { get; set; }
+		public WorldLayer Layer { get; private set; }
+		public IController Hud { get; private set; }
+
+		public IBrush Brush { get; set; }
+		public CustomGroundShape Shape { get; set; }
+		public bool HasShadow { get; set; }
+		private IBrush _shadowBrush;
+
+		public float Radius { get; set; }
+		public IRadiusTransformator RadiusTransformator { get; set; }
+		//new
+		public int Vertices { get; set; }
+		public int SkipVertices { get; set; }
+		public float Angle { get; set; }
+		public bool Rotation { get; set; }
+		public int RotationSpeed { get; set; }
+
+		public CustomGroundShapeDecorator(IController hud)
+		{
+			Enabled = true;
+			Layer = WorldLayer.Ground;
+			Hud = hud;
+
+			_shadowBrush = Hud.Render.CreateBrush(96, 0, 0, 0, 1);
+			Shape = CustomGroundShape.NStar;
+			HasShadow = true;
+
+			//new
+			SkipVertices = 1;
+			Rotation = false;
+			RotationSpeed = 30;
+		}
+
+		public void Paint(IActor actor, IWorldCoordinate coord, string text)
+		{
+			if (!Enabled) return;
+			if (Brush == null) return;
+			if (Vertices <= 2) return;
+			if (Vertices > 360) return;
+			if (SkipVertices <= 0) return;
+			if (SkipVertices >= Vertices) return;
+
+			var radius = Radius;
+			
+			if (radius == -1)
+            {
+                if (actor != null)
+                {
+                    radius = Math.Min(actor.RadiusBottom, 20);
+                }
+                else return;
+            }
+			
+			radius = RadiusTransformator != null ? RadiusTransformator.TransformRadius(radius) : radius;
+			
+			if (radius <= 0) return;
+			
+			switch (Shape)
+			{
+				case CustomGroundShape.NStar:
+					if (Brush.StrokeStyle.DashStyle == SharpDX.Direct2D1.DashStyle.Solid)
+						_shadowBrush.StrokeWidth = Brush.StrokeWidth >= 0 ? Brush.StrokeWidth + 1 : Brush.StrokeWidth - 1;
+					PaintNStar(coord.X, coord.Y, coord.Z, radius);
+					break;
+			}
+		}
+		
+		private void PaintNStar(float x, float y, float z, float radius)
+		{
+			var Phi = 360f / Vertices;
+			var tickRotationAngle = Rotation ? ((Hud.Game.CurrentRealTimeMilliseconds / RotationSpeed) % 360) : 0;
+			
+			for (int Edge = 0; Edge < Vertices; Edge++)
+			{
+				var XStart = x + radius * (float)Math.Cos((tickRotationAngle + Angle + Edge * Phi) * (Math.PI / 180f));
+				var XEnd = x + radius * (float)Math.Cos((tickRotationAngle + Angle + (Edge + SkipVertices) * Phi) * (Math.PI / 180f));
+				var YStart = y + radius * (float)Math.Sin((tickRotationAngle + Angle + Edge * Phi) * (Math.PI / 180f));
+				var YEnd = y + radius * (float)Math.Sin((tickRotationAngle + Angle + (Edge + SkipVertices) * Phi) * (Math.PI / 180f));
+				
+				if (HasShadow)
+					_shadowBrush.DrawLineWorld(XStart, YStart, z, XEnd, YEnd, z);
+				
+				Brush.DrawLineWorld(XStart, YStart, z, XEnd, YEnd, z);
+			} /**/
+		}
+		
+		public IEnumerable<ITransparent> GetTransparents()
+		{
+			yield return Brush;
+			yield return _shadowBrush;
+		}
+	}
+}

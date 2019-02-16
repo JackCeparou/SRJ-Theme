@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	-->
+	<!-- 	 THEME BY 	 -=| STORMREAVER |=-			-->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	-->
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!-- NOTE: 1 is enabled | 0 is disabled.					-->
+	<!-- NOTE: Some overrides are turned off (enabled="0"),		-->
+	<!--       to make those functional, set enabled="1".		-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+	
+<!-- CIRCLES :: custom circles drawn around player or cursor when equipping or using certain items or skills -->
+
+
+<!-- =========================	-->
+<!--	TEMPLATES			    -->
+<!-- =========================	-->
+
+	<templates>
+
+
+<!-- Master Control template to enable/disable all CIRCLES -->
+	   <!-- TO DISABLE CIRCLES for each section/type, change enabled="1" to enabled="0" -->
+
+<Gems enabled="1" />
+<Items enabled="1" />
+<Barb enabled="1" />
+<Crus enabled="1" />
+<Monk enabled="1" />
+<DH enabled="1" />
+<WD enabled="1" />
+<Wiz enabled="1" />
+<Misc enabled="1" />
+
+
+	</templates>
+
+
+<!-- =========================	-->
+<!--	CIRCLES				    -->
+<!-- =========================	-->
+
+	<circles>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	LEGENDARY GEMS			-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- Bane of the Trapped: 403456 (Dmg/CC) | Rank 25: 403457 (-30% Slow Aura)-->
+<circle_BaneOfTheTrapped template="Gems" center="me" radius="15">
+	<style enabled="1" color="30,0,255,0" stroke="1.4" dash="Dash" />
+	<conditions enabled="1" active_buffs="403457/*" only_out_town="1" />
+</circle_BaneOfTheTrapped>
+
+<!-- Pain Enhancer: 403462 (Bleed/Crit) | Rank 25: 403600 (+AS Blood Frenzy) -->
+<circle_PainEnhancer template="Gems" center="me" radius="20">
+	<style enabled="1" color="80,255,20,20" stroke="1.5" dash="Dash" />
+	<conditions enabled="1" active_buffs="403600/*" only_out_town="1" />
+</circle_PainEnhancer>
+
+<!-- Zei's Stone of Vengeance: 403468 (Dmg/Distance) | Rank 25 (Chance to Stun) -->
+<circle_ZeiStoneOfVengeance template="Gems" center="me" radius="50">
+	<style enabled="1" color="192,192,64,64" stroke="0.5" dash="Dash" />
+	<conditions enabled="1" active_buffs="403468/*" only_out_town="1" />
+</circle_ZeiStoneOfVengeance>
+
+<!-- Bane of the Powerful: 383014 -->
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	ITEMS					-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- Harrington Waistguard Belt Buff / when active -->
+<circle_Harrington_outline template="Items" center="me" radius="14" fade="100">
+	<style enabled="0" color="150,64,64,64" stroke="3"/>
+	<conditions enabled="1" active_buffs="318881/1" only_out_town="1" />
+</circle_Harrington_outline>
+<circle_Harrington_fill template="Items" center="me" radius="14" fade="100">
+	<style enabled="0" color="20,192,64,64" stroke="0"/>
+	<conditions enabled="1" active_buffs="318881/1" only_out_town="1" />
+</circle_Harrington_fill>
+
+<!-- Razor Strop Belt Buff -->
+<circle_Razor_Strop template="Items" center="me" radius="20">
+	<style enabled="1" color="60,200,50,50" stroke="1.5"/>
+	<conditions enabled="1" active_buffs="318241/0" only_out_town="1" />
+</circle_Razor_Strop>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	BARBARIAN				-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- Barbarian / Brawler / Passive -->
+<circle_Barb_Brawler template="Barb" center="me" radius="12">
+	<style enabled="1" color="40,140,140,0" stroke="1.8" />
+	<conditions enabled="1" powers="barbarian_passive_brawler/*" only_out_town="1" />
+</circle_Barb_Brawler>
+
+<!-- Barbarian / Earthquake / All Runes -->
+<circle_Barb_Earthquake template="Barb" center="me" radius="18">
+	<style enabled="1" color="50,255,0,0" stroke="1.5" />
+	<conditions enabled="1" powers="barbarian_earthquake/*" only_out_town="1" />
+</circle_Barb_Earthquake>
+
+<!-- Barbarian / Whirlwind / Hurricane Rune -->
+<circle_Barb_Whirlwind template="Barb" center="me" radius="34">
+	<style enabled="1" color="30,0,100,255" stroke="2" />
+	<conditions enabled="1" powers="Barbarian_Whirlwind/2" only_out_town="1" />
+</circle_Barb_Whirlwind>
+
+<!-- Barbarian / Threatening Shout / All Runes -->
+<circle_Barb_ThreateningShout template="Barb" center="me" radius="25">
+	<style enabled="1" color="15,255,255,0" stroke="1.5" />
+	<conditions enabled="1" powers="barbarian_threateningshout/*" only_out_town="1" />
+</circle_Barb_ThreateningShout>
+
+<!-- Barbarian / Ground Stomp -->
+
+	<!-- // All Runes EXCEPT: Wrenching Smash Rune -->
+<circle_Barb_GroundStomp1 template="Barb" center="me" radius="14">
+	<style enabled="1" color="30,255,150,0" stroke="1.5" />
+	<conditions enabled="1" powers="Barbarian_GroundStomp/0, Barbarian_GroundStomp/2, Barbarian_GroundStomp/3, Barbarian_GroundStomp/4" only_out_town="1" />
+</circle_Barb_GroundStomp1>
+
+	<!-- // Wrenching Smash Rune -->
+<circle_Barb_GroundStomp2 template="Barb" center="me" radius="24">
+	<style enabled="1" color="30,255,150,0" stroke="1.5" />
+	<conditions enabled="1" powers="Barbarian_GroundStomp/1" only_out_town="1" />
+</circle_Barb_GroundStomp2>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	CRUSADER				-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- Crusader / Bombardment / Impactful Bombardment Rune -->
+<circle_Crusader_Bombardment template="Crus" center="me" radius="18">
+	<style enabled="1" color="60,255,50,0" stroke="2" />
+	<conditions enabled="1" class="crusader" powers="x1_crusader_bombardment/3" only_out_town="1" />
+</circle_Crusader_Bombardment>
+
+<!-- Crusader / Condemn -->
+
+	<!-- // All Runes EXCEPT: Vacuum & Shattering Explosion Runes -->
+<circle_Crusader_Condemn1 template="Crus" center="me" radius="15">
+	<style enabled="1" color="60,250,255,0" stroke="2" dash="Dash" />
+	<conditions enabled="1" powers="x1_crusader_condemn/0, x1_crusader_condemn/2, x1_crusader_condemn/4" only_out_town="1" />
+</circle_Crusader_Condemn1>
+
+	<!-- // Vacuum Rune (Explosion) -->
+<circle_Crusader_Condemn2a template="Crus" center="me" radius="15">
+	<style enabled="1" color="50,250,255,0" stroke="2" dash="Dash" />
+	<conditions enabled="1" powers="x1_crusader_condemn/1" only_out_town="1" />
+</circle_Crusader_Condemn2a>
+
+	<!-- // Vacuum Rune (Pull) -->
+<circle_Crusader_Condemn2b template="Crus" center="me" radius="20">
+	<style enabled="1" color="50,255,180,40" stroke="2" dash="Dash" />
+	<conditions enabled="1" powers="x1_crusader_condemn/1" only_out_town="1" />
+</circle_Crusader_Condemn2b>
+
+	<!-- // Shattering Explosion Rune -->
+<circle_Crusader_Condemn3 template="Crus" center="me" radius="20">
+	<style enabled="1" color="60,250,255,0" stroke="2" dash="Dash" />
+	<conditions enabled="1" powers="x1_crusader_condemn/3" only_out_town="1" />
+</circle_Crusader_Condemn3>
+
+<!-- Crusader / Falling Sword / All Runes -->
+<circle_Crusader_FallingSword template="Crus" center="me" radius="14">
+	<style enabled="1" color="100,150,150,0" stroke="2" dash="Dash" />
+	<conditions enabled="1" powers="x1_crusader_fallingsword/*" only_out_town="1" />
+</circle_Crusader_FallingSword>
+
+<!-- Crusader / Shield Glare / All Runes -->
+<circle_Crusader_ShieldGlare template="Crus" center="me" radius="30">
+	<style enabled="1" color="100,220,220,220" stroke="1" dash="Dash" />
+	<conditions enabled="1" powers="x1_crusader_shieldglare/*" only_out_town="1" />
+</circle_Crusader_ShieldGlare>
+
+<!-- Crusader / Heaven's Fury -->
+
+	<!-- // All Runes EXCEPT: Ascendancy Rune -->
+<circle_Crusader_HeavensFury1 template="Crus" center="cursor" radius="8">
+	<style enabled="1" color="100,220,180,0" stroke="1" dash="Dash" />
+	<conditions enabled="1" powers="x1_crusader_heavensfury3/1, x1_crusader_heavensfury3/2, x1_crusader_heavensfury3/3, x1_crusader_heavensfury3/4" only_out_town="1" />
+</circle_Crusader_HeavensFury1>
+
+	<!-- // Ascendancy Rune -->
+<circle_Crusader_HeavensFury2 template="Crus" center="cursor" radius="12">
+	<style enabled="1" color="100,220,180,0" stroke="1" dash="Dash" />
+	<conditions enabled="1" powers="x1_crusader_heavensfury3/0" only_out_town="1" />
+</circle_Crusader_HeavensFury2>
+
+<!-- Crusader / Judgment / All Runes -->
+<circle_Crusader_Judgment template="Crus" center="cursor" radius="20">
+	<style enabled="1" color="200,200,0,70" stroke="1.5" dash="Dash" />
+	<conditions enabled="1" powers="X1_Crusader_Judgment/*" only_out_town="1" />
+</circle_Crusader_Judgment>
+
+<!-- Crusader / Blessed Shield Rune / shows only when skill is used -->
+<circle_Crusader_BlessedShield enabled="0" template="Crus" radius="60" center="me">
+	<style enabled="1" color="230,255,255,0" stroke="2" /> <!-- color format: ARGB (Alpha,Red,Green,Blue), Alpha: opacity/transparency -->
+	<conditions enabled="1" only_out_town="1" active_buffs="266951/*" /> <!-- remove "active_" if you always want the circle  -->
+</circle_Crusader_BlessedShield>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	MONK					-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- Monk / Inna's Mantra (Set) / Mantra of Conviction
+Mantra of: Conviction 375089, Healing 373154, Retribution 318435, Salvation 375050 -->
+<circle_Monk_InnaMantra template="Monk" center="me" radius="30">
+	<style enabled="1" color="50,255,50,50" stroke="1" />
+	<conditions enabled="1" active_buffs="375089/*" class="monk" only_out_town="1" />
+</circle_Monk_InnaMantra>
+
+<!-- Monk / Mantra of Conviction / All Runes -->
+<circle_Monk_MantraOfConviction template="Monk" center="me" radius="30">
+	<style enabled="1" color="100,255,50,50" stroke="1" />
+	<conditions enabled="1" powers="x1_monk_mantraofconviction_v2/*" only_out_town="1" />
+</circle_Monk_MantraOfConviction>
+
+<!-- Monk / Determination / Passive -->
+<circle_Monk_Determination template="Monk" center="me" radius="12">
+	<style enabled="1" color="40,100,150,255" stroke="1.5" />
+	<conditions enabled="1" powers="p1_monk_passive_provocation/*" only_out_town="1" />
+</circle_Monk_Determination>
+
+<!-- Monk / Cyclone Strike -->
+
+	<!-- // All Runes EXCEPT: Implosion Rune -->
+<circle_Monk_CycloneStrike1 template="Monk" center="me" radius="24">
+	<style enabled="1" color="60,150,150,0" stroke="2" />
+	<conditions enabled="1" powers="monk_cyclonestrike/0, monk_cyclonestrike/2, monk_cyclonestrike/3, monk_cyclonestrike/4" only_out_town="1" />
+</circle_Monk_CycloneStrike1>
+
+	<!-- // Implosion Rune -->
+<circle_Monk_CycloneStrike2 template="Monk" center="me" radius="34">
+	<style enabled="1" color="60,150,150,0" stroke="2" />
+	<conditions enabled="1" powers="monk_cyclonestrike/1" only_out_town="1" />
+</circle_Monk_CycloneStrike2>
+
+<!-- Monk / Lashing Tail Kick / Sweeping Armada Rune -->
+<circle_Monk_LashingTailKick template="Monk" center="me" radius="15">
+	<style enabled="1" color="100,255,20,0" stroke="1.5" dash="Dash" />
+	<conditions enabled="1" powers="monk_lashingtailkick/3" only_out_town="1" />
+</circle_Monk_LashingTailKick>
+
+<!-- Monk / Sweeping Wind -->
+
+	<!-- // All Runes EXCEPT: Fire Storm Rune -->
+<circle_Monk_SweepingWind1 template="Monk" center="me" radius="10">
+	<style enabled="1" color="70,255,150,0" stroke="1.5" dash="Dash" />
+	<conditions enabled="1" powers="monk_sweepingwind/0, monk_sweepingwind/2, monk_sweepingwind/3, monk_sweepingwind/4" only_out_town="1" />
+</circle_Monk_SweepingWind1>
+
+	<!-- // Fire Storm Rune -->
+<circle_Monk_SweepingWind2 template="Monk" center="me" radius="14">
+	<style enabled="1" color="70,255,150,0" stroke="1.5" dash="Dash" />
+	<conditions enabled="1" powers="monk_sweepingwind/1" only_out_town="1" />
+</circle_Monk_SweepingWind2>
+
+<!-- Monk / Crippling Wave -->
+
+	<!-- // All Runes EXCEPT Tsunami Rune -->
+<circle_Monk_CripplingWave1 template="Monk" center="me" radius="11">
+	<style enabled="1" color="100,0,50,255" stroke="1.2" />
+	<conditions enabled="1" powers="monk_cripplingwave/0, monk_cripplingwave/2, monk_cripplingwave/3, monk_cripplingwave/4" only_out_town="1" />
+</circle_Monk_CripplingWave1>
+
+	<!-- // Tsunami Rune -->
+<circle_Monk_CripplingWave2 template="Monk" center="me" radius="17">
+	<style enabled="1" color="100,0,50,255" stroke="1.2" />
+	<conditions enabled="1" powers="monk_cripplingwave/1" only_out_town="1" />
+</circle_Monk_CripplingWave2>
+
+<!-- Monk / Blinding Flash / All Runes -->
+<circle_Monk_BlindingFlash template="Monk" center="me" radius="20">
+	<style enabled="1" color="50,255,255,255" stroke="0.5" />
+	<conditions enabled="1" powers="monk_blindingflash/*" only_out_town="1" />
+</circle_Monk_BlindingFlash>
+
+<!-- Monk / Tempest Rush -->
+
+	<!-- // Flurry Rune -->
+<circle_Monk_TempestRush1 template="Monk" center="me" radius="15">
+	<style enabled="1" color="50,0,120,255" stroke="1.5" />
+	<conditions enabled="1" powers="monk_tempestrush/4" only_out_town="1" />
+</circle_Monk_TempestRush1>
+
+	<!-- // Electric Field Rune -->
+<circle_Monk_TempestRush2 template="Monk" center="me" radius="20">
+	<style enabled="1" color="50,0,170,255" stroke="1.5" />
+	<conditions enabled="1" powers="monk_tempestrush/2" only_out_town="1" />
+</circle_Monk_TempestRush2>
+
+<!-- Monk / Breath of Heaven / All Runes -->
+<circle_Monk_BreathOfHeaven template="Monk" center="me" radius="12">
+	<style enabled="1" color="30,255,255,255" stroke="1.5" />
+	<conditions enabled="1" powers="monk_breathofheaven/*" only_out_town="1" />
+</circle_Monk_BreathOfHeaven>
+
+<!-- Monk / Inner Sanctuary / All Runes -->
+<circle_Monk_InnerSanctuary template="Monk" center="me" radius="11">
+	<style enabled="1" color="30,255,255,255" stroke="1.5" />
+	<conditions enabled="1" powers="X1_Monk_InnerSanctuary/*" only_out_town="1" />
+</circle_Monk_InnerSanctuary>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	DEMON HUNTER			-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- Demon Hunter / Unhallowed Essence (Set) -->
+<circle_DH_UnhallowedEssence template="DH" center="me" radius="10" >
+	<style enabled="1" color="80,0,150,200" stroke="1.5" dash="Dash" />
+	<conditions enabled="1" active_buffs="423244/1" only_out_town="1" />
+</circle_DH_UnhallowedEssence>
+
+<!-- Demon Hunter / Steady Aim / Passive -->
+<circle_DH_SteadyAim template="DH" center="me" radius="10">
+	<style enabled="0" color="80,0,250,150" stroke="1" dash="Dash" />
+	<conditions enabled="1" powers="demonhunter_passive_steadyaim/*" only_out_town="1" />
+</circle_DH_SteadyAim>
+
+<!-- Demon Hunter / Hungering Arrow / Spray of Teeth Rune -->
+<circle_DH_HungeringArrow1 template="DH" center="cursor" radius="10">
+	<style enabled="1" color="150,255,50,0" stroke="1" dash="Dash" />
+	<conditions enabled="1" powers="demonhunter_hungeringarrow/4" only_out_town="1" />
+</circle_DH_HungeringArrow1>
+
+<!-- Demon Hunter / Bolas -->
+
+	<!-- // ALL Runes EXCEPT: Volatile Explosives & Freezing Strike Runes -->
+<circle_DH_Bolas1 template="DH" center="cursor" radius="14">
+	<style enabled="1" color="120,200,200,0" stroke="1" dash="Dash" />
+	<conditions enabled="1" powers="demonhunter_bolas/2, demonhunter_bolas/3, demonhunter_bolas/4" only_out_town="1" />
+</circle_DH_Bolas1>
+
+	<!-- // Volatile Explosives Rune -->
+<circle_DH_Bolas2 template="DH" center="cursor" radius="20">
+	<style enabled="1" color="120,200,200,0" stroke="1" dash="Dash" />
+	<conditions enabled="1" powers="demonhunter_bolas/0" only_out_town="1" />
+</circle_DH_Bolas2>
+
+<!-- Demon Hunter / Grenade / Cluster Grenades Rune -->
+<circle_DH_Grenade1 template="DH" center="cursor" radius="9">
+	<style enabled="1" color="150,200,200,0" stroke="1" dash="Dash" />
+	<conditions enabled="1" powers="demonhunter_grenades/1" only_out_town="1" />
+</circle_DH_Grenade1>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	WITCH DOCTOR			-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- Witch Doctor / Grave Injustice / Passive
+Witchdoctor_Passive_GraveInjustice / SNO: 218191 / Hellfire: 401471 -->
+<circle_WD_GraveInjustice template="WD" center="me" radius="20" extend_by_pickup="1">
+	<style enabled="1" color="100,220,0,50" stroke="1.5" dash="Dash" />
+	<conditions enabled="1" active_buffs="218191,401471" only_out_town="1" />
+</circle_WD_GraveInjustice>
+
+<!-- WitchDoctor / Confidence Ritual / Passive (+25% damage, 20 yards) -->
+<circle_WD_ConfidenceRitual template="WD" center="me" radius="20">
+	<style enabled="1" color="100,192,192,192" stroke="0.5" dash="" />
+	<conditions enabled="1" active_buffs="442741/*" only_out_town="1" />
+</circle_WD_ConfidenceRitual>
+
+<!-- Witch Doctor / Firebomb -->
+
+	<!-- // All Runes EXCEPT: Flash Fire & Ghost Bomb Runes -->
+<circle_WD_Firebomb1 template="WD" center="cursor" radius="8">
+	<style enabled="1" color="25,255,0,255" stroke="2" />
+	<conditions enabled="1" powers="witchdoctor_firebomb/0, witchdoctor_firebomb/1, witchdoctor_firebomb/2" only_out_town="1" />
+</circle_WD_Firebomb1>
+
+	<!-- // Ghost Bomb Rune -->
+<circle_WD_Firebomb2 template="WD" center="cursor" radius="28">
+	<style enabled="1" color="25,255,0,255" stroke="2" />
+	<conditions enabled="1" powers="witchdoctor_firebomb/0" only_out_town="1" />
+</circle_WD_Firebomb2>
+
+<!-- Witch Doctor / Soul Harvest / All Runes -->
+<circle_WD_SoulHarvest template="WD" center="me" radius="18">
+	<style enabled="1" color="70,0,150,250" stroke="1.5" dash="" />
+	<conditions enabled="1" powers="Witchdoctor_SoulHarvest/*" only_out_town="1" />
+</circle_WD_SoulHarvest>
+
+<!-- Witch Doctor / Horrify -->
+
+	<!-- // All Runes EXCEPT: Face of Death Rune -->
+<circle_WD_Horrify1 template="WD" center="me" radius="18">
+	<style enabled="1" color="60,0,50,255" stroke="2" />
+	<conditions enabled="1" powers="witchdoctor_horrify/0, witchdoctor_horrify/2, witchdoctor_horrify/3, witchdoctor_horrify/4" only_out_town="1" />
+</circle_WD_Horrify1>
+
+	<!-- // Face of Death Rune -->
+<circle_WD_Horrify2 template="WD" center="me" radius="24">
+	<style enabled="1" color="60,0,50,255" stroke="2" />
+	<conditions enabled="1" powers="witchdoctor_horrify/1" only_out_town="1" />
+</circle_WD_Horrify2>
+
+<!-- Witch Doctor / Firebats / Cloud of Bats Rune -->
+<circle_WD_Firebats template="WD" center="me" radius="15">
+	<style enabled="1" color="100,255,100,100" stroke="1.3" dash="Dash" />
+	<conditions enabled="1" powers="Witchdoctor_Firebats/4" only_out_town="1" />
+</circle_WD_Firebats>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	WIZARD					-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- Wizard / Audacity / Passive -->
+<circle_Wizard_Audacity template="Wiz" center="me" radius="15">
+	<style enabled="1" color="100,150,0,150" stroke="2" />
+	<conditions enabled="1" powers="x1_wizard_passive_audacity/*" only_out_town="1" />
+</circle_Wizard_Audacity>
+
+<!-- Wizard / Blackhole -->
+
+	<!-- // All Runes EXCEPT: Supermassive Rune -->
+<circle_Wizard_Blackhole1 template="Wiz" center="cursor" radius="15">
+	<style enabled="1" color="80,0,0,65" stroke="2" />
+	<conditions enabled="1" powers="x1_wizard_wormhole/1, x1_wizard_wormhole/2, x1_wizard_wormhole/3, x1_wizard_wormhole/4" only_out_town="1" />
+</circle_Wizard_Blackhole1>
+
+	<!-- // Supermassive Rune -->
+<circle_Wizard_Blackhole2 template="Wiz" center="cursor" radius="20">
+	<style enabled="1" color="80,0,0,65" stroke="2" />
+	<conditions enabled="1" powers="x1_wizard_wormhole/0" only_out_town="1" />
+</circle_Wizard_Blackhole2>
+
+<!-- Wizard / Blizzard -->
+
+	<!-- // All Runes EXCEPT: Apocalypse Rune -->
+<circle_Wizard_Blizzard1 template="Wiz" center="cursor" radius="12">
+	<style enabled="1" color="80,80,0,150" stroke="2" />
+	<conditions enabled="1" powers="wizard_blizzard/0, wizard_blizzard/2, wizard_blizzard/3, wizard_blizzard/4" only_out_town="1" />
+</circle_Wizard_Blizzard1>
+
+	<!-- // Apocalypse Rune -->
+<circle_Wizard_Blizzard2 template="Wiz" center="cursor" radius="30">
+	<style enabled="1" color="80,80,0,150" stroke="2" />
+	<conditions enabled="1" powers="wizard_blizzard/1" only_out_town="1" />
+</circle_Wizard_Blizzard2>
+
+<!-- Wizard / Meteor -->
+
+	<!-- // All Runes EXCEPT: Meteor Shower & Molten Impact Runes -->
+<circle_Wizard_Meteor1 template="Wiz" center="cursor" radius="12">
+	<style enabled="1" color="40,220,20,50" stroke="2" />
+	<conditions enabled="1" powers="wizard_meteor/2, wizard_meteor/3, wizard_meteor/4" only_out_town="1" />
+</circle_Wizard_Meteor1>
+
+	<!-- // Meteor Shower Rune -->
+<circle_Wizard_Meteor2 template="Wiz" center="cursor" radius="30">
+	<style enabled="0" color="40,220,20,50" stroke="2" />
+	<conditions enabled="1" powers="wizard_meteor/1" only_out_town="1" />
+</circle_Wizard_Meteor2>
+
+	<!-- // Molten Impact Rune -->
+<circle_Wizard_Meteor3 template="Wiz" center="cursor" radius="20">
+	<style enabled="1" color="40,220,20,50" stroke="2" />
+	<conditions enabled="1" powers="wizard_meteor/0" only_out_town="1" />
+</circle_Wizard_Meteor3>
+
+<!-- Wizard / Spectral Blade -->
+
+	<!-- // All Runes EXCEPT: Thrown Blade Rune -->
+<circle_Wizard_SpectralBlade1 template="Wiz" center="me" radius="15">
+	<style enabled="1" color="70,250,0,200" stroke="2.5" />
+	<conditions enabled="1" powers="Wizard_SpectralBlade/0, Wizard_SpectralBlade/2, Wizard_SpectralBlade/3, Wizard_SpectralBlade/4" only_out_town="1" />
+</circle_Wizard_SpectralBlade1>
+
+	<!-- // Thrown Blade Rune -->
+<circle_Wizard_SpectralBlade2 template="Wiz" center="me" radius="20">
+	<style enabled="1" color="70,250,0,200" stroke="2.5" />
+	<conditions enabled="1" powers="Wizard_SpectralBlade/1" only_out_town="1" />
+</circle_Wizard_SpectralBlade2>
+
+<!-- Wizard / Explosive Blast -->
+
+	<!-- // All Runes EXCEPT: Obliterate Rune -->
+<circle_Wizard_SpectralBlade1 template="Wiz" center="me" radius="12">
+	<style enabled="1" color="60,255,150,50" stroke="1.5" />
+	<conditions enabled="1" powers="Wizard_ExplosiveBlast/0, Wizard_ExplosiveBlast/2, Wizard_ExplosiveBlast/3, Wizard_ExplosiveBlast/4" only_out_town="1" />
+</circle_Wizard_SpectralBlade1>
+
+	<!-- // Obliterate Rune -->
+<circle_Wizard_SpectralBlade2 template="Wiz" center="me" radius="18">
+	<style enabled="1" color="60,255,150,50" stroke="1.5" />
+	<conditions enabled="1" powers="Wizard_ExplosiveBlast/1" only_out_town="1" />
+</circle_Wizard_SpectralBlade2>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	MISC					-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- Player cursor enhancement -->
+<cursor1 template="Misc" center="cursor" radius="0.5">
+	<style enabled="0" color="135,15,255,15" stroke="7" />
+	<conditions enabled="1" only_out_town="1" />
+</cursor1>
+<cursor2 template="Misc" center="cursor" radius="1.3">
+	<style enabled="0" color="135,15,200,15" stroke="7" />
+	<conditions enabled="1" only_out_town="1" />
+</cursor2>
+<cursor3 template="Misc" center="cursor" radius="2">
+	<style enabled="0" color="135,15,150,15" stroke="7" />
+	<conditions enabled="1" only_out_town="1" />
+</cursor3> 
+
+
+	</circles>
+
+
+</config>

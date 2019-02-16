@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+
+
+
+	<actors>
+
+
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	CRUSADER SKILLS			-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+
+
+
+<!-- add TIMER labels to CRUS SKILLS -->
+
+
+	<!-- Consecration / No Rune, Bed of Nails, Shattered Ground, Fearful (20y, 10s) -->
+<Consecration1 enabled="1" template="cd_timer" speech_text="" keywords="snos=257376|351139|324081|351031">
+	<ground_circle enabled="1" radius="20" ping_speed="0" color="220,220,220,220" stroke="2" dash="Dash" />
+	<ground_label enabled="1" offset_z="0" count_down="10">
+			<text font_size="8.5" font_color="255,100,255,150" />
+	</ground_label>
+	<ground_timer enabled="1" offset_z="0" count_down="10" radius="35">
+		<empty color="130,0,0,0" />
+		<fill color="100,190,117,0" />
+	</ground_timer>
+</Consecration1>
+
+	<!-- Consecration / Bathed In Light (24y, 10s) -->
+<Consecration2 enabled="1" template="cd_timer" speech_text="" keywords="snos=352414">
+	<ground_circle enabled="1" radius="24" ping_speed="0" color="220,220,220,220" stroke="2" dash="Dash" />
+	<ground_label enabled="1" offset_z="0" count_down="10">
+			<text font_size="8.5" font_color="255,100,255,150" />
+	</ground_label>
+	<ground_timer enabled="1" offset_z="0" count_down="10" radius="35">
+		<empty color="130,0,0,0" />
+		<fill color="100,190,117,0" />
+	</ground_timer>
+</Consecration2>
+
+	<!-- Consecration / Aegis Purgatory (20y, 5s) -->
+<Consecration3 enabled="1" template="cd_timer" speech_text="" keywords="snos=352942">
+	<ground_circle enabled="1" radius="20" ping_speed="0" color="220,220,220,220" stroke="2" dash="Dash" />
+	<ground_label enabled="1" offset_z="0" count_down="5">
+			<text font_size="8.5" font_color="255,100,255,150" />
+	</ground_label>
+	<ground_timer enabled="1" offset_z="0" count_down="5" radius="35">
+		<empty color="130,0,0,0" />
+		<fill color="100,190,117,0" />
+	</ground_timer>
+</Consecration3>
+
+
+	<!-- Falling Sword / Superheated (14y, 6s) -->
+<Falling_Sword1 enabled="1" template="cd_timer" speech_text="" keywords="snos=306210">
+	<ground_circle enabled="1" radius="14" ping_speed="0" color="220,220,220,220" stroke="2" dash="Dash" />
+	<ground_label enabled="1" offset_z="0" count_down="6">
+			<text font_size="8.5" font_color="255,100,255,150" />
+	</ground_label>
+	<ground_timer enabled="1" offset_z="0" count_down="6" radius="35">
+		<empty color="130,0,0,0" />
+		<fill color="100,190,117,0" />
+	</ground_timer>
+</Falling_Sword1>
+
+	<!-- Falling Sword / Part The Clouds (24y, 5s) -->
+<Falling_Sword2 enabled="1" template="cd_timer" speech_text="" keywords="snos=306225">
+	<ground_circle enabled="1" radius="24" ping_speed="0" color="220,220,220,220" stroke="2" dash="Dash" />
+	<ground_label enabled="1" offset_z="0" count_down="5">
+			<text font_size="8.5" font_color="255,100,255,150" />
+	</ground_label>
+	<ground_timer enabled="1" offset_z="0" count_down="5" radius="35">
+		<empty color="130,0,0,0" />
+		<fill color="100,190,117,0" />
+	</ground_timer>
+</Falling_Sword2>
+
+	<!-- Falling Sword / Rise Brothers (2y, 5s) -->
+<Falling_Sword3 enabled="1" template="cd_timer" speech_text="" keywords="snos=449978">
+	<ground_circle enabled="1" radius="2" ping_speed="0" color="220,220,220,220" stroke="2" dash="Dash" />
+	<ground_label enabled="1" offset_z="0" count_down="5">
+			<text font_size="8.5" font_color="255,100,255,150" />
+	</ground_label>
+	<ground_timer enabled="1" offset_z="0" count_down="5" radius="20">
+		<empty color="130,0,0,0" />
+		<fill color="100,190,117,0" />
+	</ground_timer>
+</Falling_Sword3>
+
+	<!-- Falling Sword / Flurry (14y, 5s) -->
+<Falling_Sword4 enabled="1" template="cd_timer" speech_text="" keywords="snos=353516">
+	<ground_circle enabled="1" radius="14" ping_speed="0" color="220,220,220,220" stroke="2" dash="Dash" />
+	<ground_label enabled="1" offset_z="0" count_down="5">
+			<text font_size="8.5" font_color="255,100,255,150" />
+	</ground_label>
+	<ground_timer enabled="1" offset_z="0" count_down="5" radius="35">
+		<empty color="130,0,0,0" />
+		<fill color="100,190,117,0" />
+	</ground_timer>
+</Falling_Sword4>
+
+
+
+	</actors>
+
+
+<!-- =========================	-->
+<!--	OVERRIDES				-->
+<!-- =========================	-->
+
+	<overrides>
+
+
+<!-- disable entries (in default theme) / Re-added to <ACTORS> -->
+
+	<!-- disable SUMMONED ACTORS: Hydra -->
+<Hydra_MM enabled="1" file="ui_default_actors_skills" path="actors.hydra.enabled" value="0" />
+
+	<!-- disable SUMMONED ACTORS: Sentry -->
+<Sentry_MM enabled="1" file="ui_default_actors_skills" path="actors.sentry.enabled" value="0" />
+
+	<!-- disable TIMERS for SUMMONED ACTORS -->
+<Actors_Timer enabled="1" file="ui_default_actors_skill_timers" path="templates.timer.enabled" value="0" />
+
+
+	</overrides>
+
+
+</config>

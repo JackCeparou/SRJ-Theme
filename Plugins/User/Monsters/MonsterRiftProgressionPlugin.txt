@@ -1,0 +1,278 @@
+using SharpDX.DirectInput;
+using Turbo.Plugins.Default;
+
+// by glq (SeaDragon, zjqyf1111)
+namespace Turbo.Plugins.User.Monsters
+{
+    public class MonsterRiftProgressionPlugin : BasePlugin, IInGameWorldPainter, IKeyEventHandler
+	{
+        public WorldDecoratorCollection Decorator1 { get; set; }
+        public WorldDecoratorCollection Decorator1_Dying { get; set; }
+        public WorldDecoratorCollection Decorator2 { get; set; }
+        public WorldDecoratorCollection Decorator2_Dying { get; set; }
+        public WorldDecoratorCollection Decorator3 { get; set; }
+        public WorldDecoratorCollection Decorator3_Dying { get; set; }
+        public WorldDecoratorCollection Decorator4 { get; set; }
+        public WorldDecoratorCollection Decorator4_Dying { get; set; }
+        public WorldDecoratorCollection Decorator5 { get; set; }
+        public WorldDecoratorCollection Decorator5_Dying { get; set; }
+        public double DisplayLimit { get; set; }
+        public IKeyEvent ToggleKeyEvent { get; set; }
+        public bool TurnedOn { get; set; }
+        public bool DyingEnable { get; set; }
+        public bool OnlyMultiplayerEnable { get; set; }
+        private bool Multiplayer;
+        public int DyingLimit { get; set; }
+        public MonsterRiftProgressionPlugin()
+		{
+            Enabled = true;
+		}
+
+        public override void Load(IController hud)
+        {
+            base.Load(hud);
+            ToggleKeyEvent = Hud.Input.CreateKeyEvent(true, Key.F9, false, false, false);
+            TurnedOn = true;
+            DisplayLimit = 0.0;
+            DyingEnable = true;
+            DyingLimit = 15;
+            OnlyMultiplayerEnable = true;
+
+            Decorator1 = new WorldDecoratorCollection(
+                new GroundLabelDecorator(Hud)
+                {
+                    BackgroundBrush = Hud.Render.CreateBrush(90, 0, 0, 0, 0),
+                    TextFont = Hud.Render.CreateFont("tahoma", 7, 255, 255, 255, 255, false, false, 88, 0, 0, 0, true),
+                }
+                );
+            Decorator1_Dying = new WorldDecoratorCollection(
+                new GroundLabelDecorator(Hud)
+                {
+                    BackgroundBrush = Hud.Render.CreateBrush(90, 0, 0, 0, 0),
+                    TextFont = Hud.Render.CreateFont("tahoma", 7, 255, 255, 0, 0, false, false, 88, 0, 0, 0, true),
+                }
+                );
+            Decorator2 = new WorldDecoratorCollection(
+                new GroundLabelDecorator(Hud)
+                {
+                    BackgroundBrush = Hud.Render.CreateBrush(90, 0, 0, 0, 0),
+                    TextFont = Hud.Render.CreateFont("tahoma", 7, 255, 0, 200, 0, false, false, 88, 0, 0, 0, true),
+                }
+                );
+            Decorator2_Dying = new WorldDecoratorCollection(
+                new GroundLabelDecorator(Hud)
+                {
+                    BackgroundBrush = Hud.Render.CreateBrush(90, 0, 0, 0, 0),
+                    TextFont = Hud.Render.CreateFont("tahoma", 7, 255, 255, 0, 0, false, false, 88, 0, 0, 0, true),
+                }
+                );
+            Decorator3 = new WorldDecoratorCollection(
+                new GroundLabelDecorator(Hud)
+                {
+                    BackgroundBrush = Hud.Render.CreateBrush(200, 0, 125, 0, 0),
+                    TextFont = Hud.Render.CreateFont("tahoma", 7, 255, 255, 255, 255, true, false, 88, 0, 0, 0, true),
+                }
+                );
+            Decorator3_Dying = new WorldDecoratorCollection(
+                new GroundLabelDecorator(Hud)
+                {
+                    BackgroundBrush = Hud.Render.CreateBrush(200, 0, 125, 0, 0),
+                    TextFont = Hud.Render.CreateFont("tahoma", 7, 255, 255, 0, 0, true, false, 88, 0, 0, 0, true),
+                }
+                );
+            Decorator4 = new WorldDecoratorCollection(
+                new GroundLabelDecorator(Hud)
+                {
+                    BackgroundBrush = Hud.Render.CreateBrush(200, 0, 55, 0, 0),
+                    TextFont = Hud.Render.CreateFont("tahoma", 8, 255, 255, 255, 255, true, false, 88, 0, 200, 0, true),
+                }
+                );
+            Decorator4_Dying = new WorldDecoratorCollection(
+                new GroundLabelDecorator(Hud)
+                {
+                    BackgroundBrush = Hud.Render.CreateBrush(200, 0, 55, 0, 0),
+                    TextFont = Hud.Render.CreateFont("tahoma", 8, 255, 255, 0, 0, true, false, 88, 0, 0, 0, true),
+                }
+                );
+            Decorator5 = new WorldDecoratorCollection(
+                new GroundLabelDecorator(Hud)
+                {
+                    BackgroundBrush = Hud.Render.CreateBrush(200, 0, 20, 0, 0),
+                    TextFont = Hud.Render.CreateFont("tahoma", 8, 255, 0, 125, 0, true, false, 88, 255, 255, 255, true),
+                }
+                );
+            Decorator5_Dying = new WorldDecoratorCollection(
+                new GroundLabelDecorator(Hud)
+                {
+                    BackgroundBrush = Hud.Render.CreateBrush(200, 0, 20, 0, 0),
+                    TextFont = Hud.Render.CreateFont("tahoma", 8, 255, 255, 0, 0, true, false, 88, 255, 255, 255, true),
+                }
+                );
+
+        }
+        public WorldDecoratorCollection GetDecoratorByProgression(IMonster monster)
+        {
+            if (monster.SnoMonster.RiftProgression<=1.0)
+            {
+                if(OnlyMultiplayerEnable)
+                {
+                    if (monster.CurHealth / monster.MaxHealth * 100 <= DyingLimit && DyingEnable && Multiplayer)
+                    {
+                        return Decorator1_Dying;
+                    }
+                    else
+                    {
+                        return Decorator1;
+                    }
+                }
+                else
+                {
+                    if (monster.CurHealth / monster.MaxHealth * 100 <= DyingLimit && DyingEnable)
+                    {
+                        return Decorator1_Dying;
+                    }
+                    else
+                    {
+                        return Decorator1;
+                    }
+                }
+            }
+            if (monster.SnoMonster.RiftProgression <= 2.0)
+            {
+                if (OnlyMultiplayerEnable)
+                {
+                    if (monster.CurHealth / monster.MaxHealth * 100 <= DyingLimit && DyingEnable && Multiplayer)
+                    {
+                        return Decorator2_Dying;
+                    }
+                    else
+                    {
+                        return Decorator2;
+                    }
+                }
+                else
+                {
+                    if (monster.CurHealth / monster.MaxHealth * 100 <= DyingLimit && DyingEnable)
+                    {
+                        return Decorator2_Dying;
+                    }
+                    else
+                    {
+                        return Decorator2;
+                    }
+                }
+            }
+            if (monster.SnoMonster.RiftProgression <= 3.0)
+            {
+                if (OnlyMultiplayerEnable)
+                {
+                    if (monster.CurHealth / monster.MaxHealth * 100 <= DyingLimit && DyingEnable && Multiplayer)
+                    {
+                        return Decorator3_Dying;
+                    }
+                    else
+                    {
+                        return Decorator3;
+                    }
+                }
+                else
+                {
+                    if (monster.CurHealth / monster.MaxHealth * 100 <= DyingLimit && DyingEnable)
+                    {
+                        return Decorator3_Dying;
+                    }
+                    else
+                    {
+                        return Decorator3;
+                    }
+                }
+            }
+            if (monster.SnoMonster.RiftProgression <= 4.0)
+            {
+                if (OnlyMultiplayerEnable)
+                {
+                    if (monster.CurHealth / monster.MaxHealth * 100 <= DyingLimit && DyingEnable && Multiplayer)
+                    {
+                        return Decorator4_Dying;
+                    }
+                    else
+                    {
+                        return Decorator4;
+                    }
+                }
+                else
+                {
+                    if (monster.CurHealth / monster.MaxHealth * 100 <= DyingLimit && DyingEnable)
+                    {
+                        return Decorator4_Dying;
+                    }
+                    else
+                    {
+                        return Decorator4;
+                    }
+                }
+
+            }
+            if (OnlyMultiplayerEnable)
+            {
+                if (monster.CurHealth / monster.MaxHealth * 100 <= DyingLimit && DyingEnable && Multiplayer)
+                {
+                    return Decorator5_Dying;
+                }
+                else
+                {
+                    return Decorator5;
+                }
+            }
+            else
+            {
+                if (monster.CurHealth / monster.MaxHealth * 100 <= DyingLimit && DyingEnable)
+                {
+                    return Decorator5_Dying;
+                }
+                else
+                {
+                    return Decorator5;
+                }
+            }
+            // in theory there is no monster with >10 progression
+        }
+		public void OnKeyEvent(IKeyEvent keyEvent)
+        {
+            if (keyEvent.IsPressed && ToggleKeyEvent.Matches(keyEvent))
+            {
+                TurnedOn = !TurnedOn;
+            }
+        }		
+        public void PaintWorld(WorldLayer layer)
+        {
+            if (!TurnedOn) return;
+            var inRift = Hud.Game.SpecialArea == SpecialArea.Rift || Hud.Game.SpecialArea == SpecialArea.GreaterRift;
+            if (!inRift) return;
+            var monsters = Hud.Game.AliveMonsters;
+            if (Hud.Game.NumberOfPlayersInGame > 1 && OnlyMultiplayerEnable)
+            {
+                Multiplayer = true;
+            }
+            else
+            {
+                Multiplayer = false;
+            }
+            foreach (var monster in monsters)
+            {
+				double MonsterRiftProgression = monster.SnoMonster.RiftProgression * 100.0d / Hud.Game.MaxQuestProgress;
+				var decorator = GetDecoratorByProgression(monster);
+				if (monster.IsElite && monster.SummonerAcdDynamicId == 0 && MonsterRiftProgression >= DisplayLimit)
+				{
+                decorator.Paint(layer, monster, monster.FloorCoordinate, MonsterRiftProgression.ToString("f2") + "%");
+				}
+				if (!monster.IsElite && MonsterRiftProgression >= DisplayLimit)
+				{
+                decorator.Paint(layer, monster, monster.FloorCoordinate, MonsterRiftProgression.ToString("f2") + "%");
+				}
+            }
+        }
+
+    }
+
+}

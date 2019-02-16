@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	-->
+	<!-- 	 THEME BY 	 -=| STORMREAVER |=-			-->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	-->
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!-- NOTE: 1 is enabled | 0 is disabled.					-->
+	<!-- NOTE: Some overrides are turned off (enabled="0"),		-->
+	<!--       to make those functional, set enabled="1".		-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+
+<!-- BUFF TAGS :: custom labels below player's feet. Display various buff states -->
+
+
+<!-- =========================	-->
+<!--	CONSTANTS				-->
+<!-- =========================	-->
+
+	<constants>
+
+
+	<!-- ALL BUFF TAGS / Excludes HP Pot CD Timer -->
+<Toggle value="1" />   <!-- TO DISABLE: change value="1" to value="0" -->
+
+
+	<!-- CONDITIONS / MASTER CONTROL -->
+<Conditions value="1" />   <!-- TO DISABLE: change value="1" to value="0" -->
+
+
+	<!-- HP Pot CD Timer / Under Feet -->
+<HP_Pot_CD value="1" />   <!-- TO DISABLE: change value="1" to value="0" -->
+
+
+	<!-- HP Pot CD Timer / Background -->
+<HP_Pot_BG value="1" />   <!-- TO DISABLE: change value="1" to value="0" -->
+
+
+	<!-- Nemesis Bracers / mark SHRINES on ground & map if equipped -->
+<NB_Shrines value="1" />   <!-- TO DISABLE: change value="1" to value="0" -->
+
+
+	<!-- Convention of Elements Ring / Above Head -->
+<CoE_Ring value="1" />   <!-- TO DISABLE: change value="1" to value="0" -->
+
+
+	</constants>
+
+
+<!-- =========================	-->
+<!--	TEMPLATES				-->
+<!-- =========================	-->
+
+	<templates>
+
+
+<!-- Add templates for Buff Labels -->
+
+<default enabled="1" zone="attributes">
+	<position enabled="1" y="34.0" w="3.5" h="11.5" container="Root.NormalLayer.game_dialog_backgroundScreenPC.game_window_hud_overlay" />
+	<body enabled="1" color="160,0,0,0" stroke="0" />
+	<border enabled="1" color="80,0,0,0" stroke="1.5" />
+	<title enabled="1" font_family="verdana" font_size="6.7" font_bold="0" font_color="255,255,255,255" font_shadow="0" font_halign="Center" />
+	<conditions enabled="1" only_out_town="1" />
+</default>
+
+<details enabled="1" template="default">
+	<title font_color="255,255,200,100" font_shadow="0" />
+</details>
+
+<details_title enabled="1" template="details">
+	<title font_halign="Left" />
+</details_title>
+
+<cond_toggle enabled="1" template="default">
+	<conditions enabled="::Conditions" />
+</cond_toggle>
+
+
+
+<!-- Add template for Convention of Elements Ring -->
+
+<CoE enabled="::CoE_Ring">
+	<position h="1" w="1.15" y="29.5" />
+	<title font_family="verdana" font_color="200,255,255,255"  />
+	<body stroke="0" />
+	<border stroke="2" />
+	<title font_family="verdana" font_size="7.0" font_color="255,255,255,0" font_bold="1" font_shadow="0" font_halign="Center" />
+	<conditions enabled="1" only_out_town="1" />
+</CoE>
+
+
+	</templates>
+
+
+<!-- =========================  -->
+<!--    ACTORS                  -->
+<!-- =========================  -->
+
+	<actors>
+
+
+<!-- Nemesis Bracers / mark SHRINES on ground & map if equipped -->
+<Nemesis_Bracers_Shrine enabled="::NB_Shrines" speech_text="" keywords="shrine_all"> <!-- speech_text="SHRINE" -->
+	<map_shape enabled="1" radius="10" ping_speed="0" shape="rectangle" color="255,150,0,100" stroke="0" />
+	<ground_label enabled="1" on_screen="1" off_screen="1" text="X">
+		<body enabled="1" color="200,150,0,100" stroke="0" />
+		<border color="255,46,39,27" stroke="2.5" />
+		<text font_family="verdana" font_size="10" font_color="255,255,255,0" font_bold="1" font_shadow="1">
+			<custom_shadow enabled="1" heavy="1" color="150,0,0,0" />
+		</text>
+	</ground_label>
+	<conditions enabled="1" active_buffs="318820/*" />
+</Nemesis_Bracers_Shrine>
+
+
+	</actors>
+
+
+<!-- =========================	-->
+<!--	LABLES					-->
+<!-- =========================	-->
+
+		<labels>
+
+
+	<Container container="1" enabled="::Toggle">   <!-- a container for elements below -->
+
+
+<!-- (1) Broken Promises (Ring) / shows on proc / 100% crit chance for 3s after 5 consecutive non-crits -->
+<Broken_Promises enabled="1" template="cond_toggle" expression="100%" hint="Broken Promises">
+	<position x="35.45" y="-155" w="2.85" />
+	<body enabled="1" color="120,0,150,200" stroke="0" />
+	<title enabled="1" font_size="6.5" font_color="200,255,255,50" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="1" color="160,0,0,0" />
+	</title>
+	<border enabled="0" stroke="1.5" color="255,255,255,50" />
+	<conditions active_buffs="402462/2" />
+</Broken_Promises>
+
+<!-- (2) Nemesis Bracers / shows while equipped / spawn elites from shrines & pylons -->
+<Nemesis_Bracers enabled="1" template="cond_toggle" expression="|NB|" hint="Nemesis Bracers">
+	<position x="38.5" y="-155" w="2.2" />
+	<body enabled="1" color="120,150,0,100" />
+	<title enabled="1" font_color="160,255,255,0" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="1" color="160,0,0,0" />
+	</title>
+	<conditions active_buffs="318820/*" only_out_town="0" />
+</Nemesis_Bracers>
+
+<!-- (3) Homing Pads (Shoulders) / shows while equipped / TP cannot be interrupted, -50% to -65% dmg taken -->
+<Homing_Pads enabled="1" template="cond_toggle" expression="[HP]" hint="Homing Pad">
+	<position x="40.9" y="-155" w="2.6" />
+	<body enabled="1" color="100,150,150,20" />
+	<title enabled="1" font_color="160,255,255,255" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="0" color="200,0,0,0" />
+	</title>
+	<conditions active_buffs="318801/1" only_out_town="0" />
+</Homing_Pads>
+
+<!-- (4) Flying Dragon (Monk Daibo) / shows on proc / 5% proc, x2 IAS for 6s, No ICD -->
+<Flying_Dragon enabled="1" template="cond_toggle" expression="|FD|" hint="Flying Dragon">
+	<position x="43.6" y="-155" w="2.6" />
+	<body enabled="1" color="120,20,20,20" />
+	<title enabled="1" font_color="160,255,255,0" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="1" color="160,0,0,0" />
+	</title>
+	<conditions active_buffs="246562/1" />
+</Flying_Dragon>
+
+<!-- (5) SWK (Monk SunWuko Set, Monkey King's Garb) / shows on proc -->
+<Monk_SWK_Set enabled="1" template="cond_toggle" expression="SWK" hint="SunWuko">
+	<position x="46.3" y="-155" w="2.2" />
+	<body enabled="1" color="180,200,200,50" />
+	<title enabled="1" font_color="200,0,0,0" font_size="6.0" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="0" color="100,0,0,0" />
+	</title>
+	<conditions active_buffs="425390/*" />
+</Monk_SWK_Set>
+
+<!-- (7) Sage's Journey (Crafted Set) / shows while equipped / +1 Death's Breath drop -->
+<Sages_Set enabled="1" template="cond_toggle" expression="SAGE" hint="Sage Set">
+	<position x="50.80" y="-155" w="2.7" />
+	<body enabled="1" color="180,0,255,255" />
+	<title enabled="1" font_color="200,0,0,0" font_size="6.7" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="0" color="100,0,0,0" />
+	</title>
+	<conditions active_buffs="359560/0" only_out_town="0" />
+</Sages_Set>
+
+<!-- (8) Wall of Man (Shield) / shows on proc / 20-30% proc, -25% dmg taken for 8s, 12-13s cd, ~40% uptime -->
+<Wall_of_Man enabled="1" template="cond_toggle" expression="WoM" hint="Wall of Man">
+	<position x="53.50" y="-155" w="2.7" />
+	<body enabled="1" color="180,255,180,80" />
+	<title enabled="1" font_color="200,0,0,0" font_size="6.7" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="0" color="100,0,0,0" />
+	</title>
+	<conditions active_buffs="247585/1" />
+</Wall_of_Man>
+
+<!-- (9) The Burning Axe of Sankis (Axe) / shows on proc / 10% proc, -35% dmg taken for 4s, No ICD, ~75% uptime -->
+<The_Burning_Axe_of_Sankis enabled="1" template="cond_toggle" expression="BAS" hint="Burning Axe of Sankis">
+	<position x="56.25" y="-155" w="2.7" />
+	<body enabled="1" color="180,255,100,00" />
+	<title enabled="1" font_color="200,0,0,0" font_size="6.7" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="0" color="100,0,0,0" />
+	</title>
+	<conditions active_buffs="246113/1" />
+</The_Burning_Axe_of_Sankis>
+
+<!-- (10) StrongArm Bracers / shows while equipped / +dmg% to enemies on knockback -->
+<StrongArm_Bracers enabled="1" template="cond_toggle" expression="ARM" hint="StrongArm Bracers">
+	<position x="58.85" y="-155" w="2.7" />
+	<body enabled="1" color="180,255,200,00" />
+	<title enabled="1" font_color="200,0,0,0" font_size="6.7" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="0" color="100,0,0,0" />
+	</title>
+	<conditions active_buffs="318772/0" />
+</StrongArm_Bracers>
+
+<!-- (11) GoldWrap (Belt) / shows on proc / +srmor for 5s on gold pickup -->
+<GoldWrap enabled="1" template="cond_toggle" expression="[GW]" hint="GoldWrap">
+	<position x="61.55" y="-155" w="2.7" />
+	<body enabled="1" color="180,255,150,00" />
+	<title enabled="1" font_color="200,0,0,0" font_size="6.7" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="0" color="100,0,0,0" />
+	</title>
+	<conditions active_buffs="318875/1" />
+</GoldWrap>
+
+<!-- Aether Walker (Wand) = changes Wiz teleport cost to arcane: 397788, 117402/4, ?? -->
+
+
+<!-- ==============================	-->
+
+
+<!-- Gem: Pain Enhancer 403600|403462|723592|723616|13418		// TEST // not working -->
+<!-- <Gem_Pain_Enhancer enabled="1" template="cond_toggle" expression="PE" hint="Pain Enhancer Gem">
+	<position x="65.85" y="-155" w="2.7" />
+	<body enabled="1" color="180,255,200,00" />
+	<title enabled="1" font_color="200,0,0,0" font_size="6.7" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="0" color="100,0,0,0" />
+	</title>
+	<conditions active_buffs="403600/2" />
+</Gem_Pain_Enhancer> -->
+
+
+<!-- ==============================	-->
+
+
+<!-- DH Wolf Howl Buff / On-Activation by anyone in Party -->
+<!--
+<DH_Wolf enabled="1" template="cond_toggle" expression="WOLF HOWL" hint="">
+	<position x="43.35" y="-122" w="6.5" h="11.5" />
+	<body enabled="1" color="200,0,150,200" stroke="0" />
+	<title enabled="1" font_family="verdana" font_size="6.7" font_color="220,255,255,50" font_bold="1" font_shadow="1" font_halign="Center">
+		<custom_shadow enabled="1" heavy="1" color="255,0,0,0" />
+	</title>
+	<border enabled="1" stroke="1.5" color="255,255,255,50" />
+	<conditions active_buffs="365311/*" />
+</DH_Wolf> -->
+
+<!-- WD BBV Buff / Inside Radius -->
+<!--
+<WD_BBV enabled="1" template="cond_toggle" expression="B.B.V." hint="">
+	<position x="49.95" y="-122" w="6.5" h="11.5" />
+	<body enabled="1" color="200,0,150,200" stroke="0" />
+	<title enabled="1" font_family="verdana" font_size="6.8" font_color="220,255,255,50" font_bold="1" font_shadow="1" font_halign="Center">
+		<custom_shadow enabled="1" heavy="1" color="255,0,0,0" />
+	</title>
+	<border enabled="1" stroke="1.5" color="255,255,255,50" />
+	<conditions active_buffs="117402/*" />
+</WD_BBV> -->
+
+
+
+
+	<!-- ================================== -->
+	<!--	Convention of Elements Ring		-->
+	<!-- ================================== -->
+
+<!-- Add CoE label above head, customized by class.
+
+Convention of Elements Ring cycle, per class, 4s each:
+1 Arcane, 2 Cold, 3 Fire, 4 Holy, 5 Lightning, 6 Physical, 7 Poison -->
+
+
+<!-- BARBARIAN (4):	Cold, Fire, Lightning, Physical -->
+
+<Cold_Barb template="CoE" expression=" ">
+	<position x="49.5"/>
+	<body color="0,77,102,155" />
+	<border color="0,0,0,0" />
+	<conditions active_buffs="430674/2" class="barbarian" />
+</Cold_Barb>
+
+<Fire_Barb template="CoE" expression="!" hint="Fire CoE">
+	<position x="49.5"/>
+	<body color="180,183,57,7" />
+	<border color="255,0,0,0" />
+	<conditions active_buffs="430674/3" class="barbarian" />
+	<title enabled="1" font_size="7.0" font_color="255,255,255,0" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="1" color="255,0,0,0" />
+	</title>
+</Fire_Barb>
+
+<Lightning_Barb template="CoE" expression=" " hint="Lightning CoE">
+	<position x="49.5"/>
+	<body color="180,0,38,119" />
+	<border color="255,0,0,0" />
+	<conditions active_buffs="430674/5" class="barbarian" />
+</Lightning_Barb>
+
+<Physical_Barb template="CoE" expression=" ">
+	<position x="49.5"/>
+	<body color="0,155,6,0" />
+	<border color="0,0,0,0" />
+	<conditions active_buffs="430674/6" class="barbarian" />
+</Physical_Barb>
+
+
+	<!-- ================================== -->
+
+
+<!-- CRUSADER (4):	Fire, Holy, Lightning, Physical -->
+
+<Fire_Crus template="CoE" expression="!" hint="Fire CoE">
+	<position x="49.5"/>
+	<body color="180,183,57,7" />
+	<border color="255,0,0,0" />
+	<conditions active_buffs="430674/3" class="crusader" />
+	<title enabled="1" font_size="7.0" font_color="255,255,255,0" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="1" color="255,0,0,0" />
+	</title>
+</Fire_Crus>
+
+<Holy_Crus template="CoE" expression=" " hint="Lightning CoE">
+	<position x="49.5"/>
+	<body color="180,0,38,119" />
+	<border color="255,0,0,0" />
+	<conditions active_buffs="430674/4" class="crusader" />
+</Holy_Crus>
+
+<Lightning_Crus template="CoE" expression=" " hint="Lightning CoE">
+	<position x="49.5"/>
+	<body color="0,0,38,119" />
+	<border color="0,0,0,0" />
+	<conditions active_buffs="430674/5" class="crusader" />
+</Lightning_Crus>
+
+<Physical_Crus template="CoE" expression=" ">
+	<position x="49.5"/>
+	<body color="0,155,6,0" />
+	<border color="0,0,0,0" />
+	<conditions active_buffs="430674/6" class="crusader" />
+</Physical_Crus>
+
+
+	<!-- ================================== -->
+
+
+<!-- MONK (5):	Cold, Fire, Holy, Lightning, Physical -->
+
+<Cold_Monk template="CoE" expression=" ">
+	<position x="49.5"/>
+	<body color="0,77,102,155" />
+	<border color="0,0,0,0" />
+	<conditions active_buffs="430674/2" class="monk" />
+</Cold_Monk>
+
+<Fire_Monk template="CoE" expression="!" hint="Fire CoE">
+	<position x="49.5"/>
+	<body color="180,183,57,7" />
+	<border color="255,0,0,0" />
+	<conditions active_buffs="430674/3" class="monk" />
+	<title enabled="1" font_size="7.0" font_color="255,255,255,0" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="1" color="255,0,0,0" />
+	</title>
+</Fire_Monk>
+
+<Holy_Monk template="CoE" expression=" " hint="Lightning CoE">
+	<position x="49.5"/>
+	<body color="180,0,38,119" />
+	<border color="255,0,0,0" />
+	<conditions active_buffs="430674/4" class="monk" />
+</Holy_Monk>
+
+<Lightning_Monk template="CoE" expression=" " hint="Lightning CoE">
+	<position x="49.5"/>
+	<body color="0,0,38,119" />
+	<border color="0,0,0,0" />
+	<conditions active_buffs="430674/5" class="monk" />
+</Lightning_Monk>
+
+<Physical_Monk template="CoE" expression=" ">
+	<position x="49.5"/>
+	<body color="0,155,6,0" />
+	<border color="0,0,0,0" />
+	<conditions active_buffs="430674/6" class="monk" />
+</Physical_Monk>
+
+
+	<!-- ================================== -->
+
+
+<!-- DEMON HUNTER (4):	Cold, Fire, Lightning, Physical -->
+
+<Cold_DH template="CoE" expression="!" hint="Cold CoE">
+	<position x="49.5"/>
+	<body color="180,77,102,155" />
+	<border color="255,0,0,0" />
+	<title enabled="1" font_size="7.0" font_color="255,255,255,0" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="1" color="255,0,0,0" />
+	</title>
+	<conditions active_buffs="430674/2" class="demonhunter" />
+</Cold_DH>
+
+<Fire_DH template="CoE" expression=" " hint="Fire CoE">
+	<position x="49.5"/>
+	<body color="180,183,57,7" />
+	<border color="255,0,0,0" />
+	<conditions active_buffs="430674/3" class="demonhunter" />
+</Fire_DH>
+
+<Lightning_DH template="CoE" expression=" ">
+	<position x="49.5"/>
+	<body color="0,0,38,119" />
+	<border color="0,0,0,0" />
+	<conditions active_buffs="430674/5" class="demonhunter" />
+</Lightning_DH>
+
+<Physical_DH template="CoE" expression=" ">
+	<position x="49.5"/>
+	<body color="0,155,6,0" />
+	<border color="0,0,0,0" />
+	<conditions active_buffs="430674/6" class="demonhunter" />
+</Physical_DH>
+
+
+	<!-- ================================== -->
+
+
+<!-- WITCH DOCTOR (4):	Cold, Fire, Physical, Poison -->
+
+<Cold_WD template="CoE" expression="!" hint="Cold CoE">
+	<position x="49.5"/>
+	<body color="180,77,102,155" />
+	<border color="255,0,0,0" />
+	<title enabled="1" font_size="7.0" font_color="255,255,255,0" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="1" color="255,0,0,0" />
+	</title>
+	<conditions active_buffs="430674/2" class="witchdoctor" />
+</Cold_WD>
+
+<Fire_WD template="CoE" expression=" " hint="Fire CoE">
+	<position x="49.5"/>
+	<body color="180,183,57,7" />
+	<border color="255,0,0,0" />
+	<conditions active_buffs="430674/3" class="witchdoctor" />
+</Fire_WD>
+
+<Physical_WD template="CoE" expression=" ">
+	<position x="49.5"/>
+	<body color="0,155,6,0" />
+	<border color="0,0,0,0" />
+	<conditions active_buffs="430674/6" class="witchdoctor" />
+</Physical_WD>
+
+<Poison_WD template="CoE" expression=" ">
+	<position x="49.5"/>
+	<body color="0,50,106,21" />
+	<border color="0,0,0,0" />
+	<conditions active_buffs="430674/7" class="witchdoctor" />
+</Poison_WD>
+
+
+	<!-- ================================== -->
+
+
+<!-- WIZARD (4):	Arcane, Cold, Fire, Lightning -->
+
+<Arcane_Wiz template="CoE" expression=" ">
+	<position x="49.5"/>
+	<body color="0,138,0,94" />
+	<border color="0,0,0,0" />
+	<conditions active_buffs="430674/1" class="wizard" />
+</Arcane_Wiz>
+
+<Cold_Wiz template="CoE" expression="!" hint="Cold CoE">
+	<position x="49.5"/>
+	<body color="180,77,102,155" />
+	<border color="255,0,0,0" />
+	<title enabled="1" font_size="7.0" font_color="255,255,255,0" font_bold="1" font_shadow="1">
+		<custom_shadow enabled="1" heavy="1" color="255,0,0,0" />
+	</title>
+	<conditions active_buffs="430674/2" class="wizard" />
+</Cold_Wiz>
+
+<Fire_Wiz template="CoE" expression=" " hint="Fire CoE">
+	<position x="49.5"/>
+	<body color="180,183,57,7" />
+	<border color="255,0,0,0" />
+	<conditions active_buffs="430674/3" class="wizard" />
+</Fire_Wiz>
+
+<Lightning_Wiz template="CoE" expression=" ">
+	<position x="49.5"/>
+	<body color="0,0,38,119" />
+	<border color="0,0,0,0" />
+	<conditions active_buffs="430674/5" class="wizard" />
+</Lightning_Wiz>
+
+
+	</Container>
+
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~	-->
+	<!--	||	NOT WORKING  	||	-->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~	-->
+
+<!-- The following do not work with Buff Labels:
+
+Speech / speech_text=""
+WD Set HellTooth 4pc	437710 // cannot show active buff
+
+-->
+
+
+		</labels>
+
+
+
+
+</config>

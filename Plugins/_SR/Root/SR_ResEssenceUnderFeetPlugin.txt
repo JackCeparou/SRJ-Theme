@@ -1,0 +1,66 @@
+
+// adaptation of StormReaver v6 xml theme
+// by SeaDragon
+// edited by SR
+
+
+// added
+using System.Globalization;
+using Turbo.Plugins.Default;
+
+// namespace Turbo.Plugins.Default
+namespace Turbo.Plugins._SR.Root
+{
+    public class SR_ResEssenceUnderFeetPlugin : BasePlugin, ICustomizer, IInGameTopPainter
+	{
+
+		// Add Essence Percent resource icon to player's bottom buff list (4th row)
+		
+		public TopLabelDecorator EssencePCTDecorator { get; set; }
+		
+		
+        public SR_ResEssenceUnderFeetPlugin()
+		{
+            Enabled = true;
+		}
+		
+        public void Customize()
+        {
+		}
+		
+        public override void Load(IController hud)
+        {
+            base.Load(hud);
+
+	
+			// Essence Percent
+			EssencePCTDecorator = new TopLabelDecorator(Hud)
+            {
+                TextFont = Hud.Render.CreateFont("tahoma", 8, 255, 255, 255, 255, true, false, 255, 0, 0, 0, true),
+                TextFunc = () => Hud.Game.Me.Stats.ResourcePctEssence.ToString("F0", CultureInfo.InvariantCulture) + "%",
+            };
+			
+						
+        }
+
+        public void PaintTopInGame(ClipState clipState)
+        {
+            if (Hud.Render.UiHidden) return;
+            if (clipState != ClipState.BeforeClip) return;
+
+			// Essence Percent
+			
+            var uiRect = Hud.Render.GetUiElement("Root.NormalLayer.game_dialog_backgroundScreenPC.game_progressBar_manaBall").Rectangle;
+
+            switch (Hud.Game.Me.HeroClassDefinition.HeroClass)
+            {
+				case HeroClass.Necromancer:
+                    // EssencePCTDecorator.Paint(uiRect.Left, uiRect.Top + uiRect.Height * 0.05f, uiRect.Width, uiRect.Height * 0.15f, HorizontalAlign.Center);
+                    EssencePCTDecorator.Paint(uiRect.Left - 423.5f, uiRect.Top + uiRect.Height * -1.85f, uiRect.Width, uiRect.Height, HorizontalAlign.Center);
+                    break;
+            }
+        }
+
+    }
+
+}

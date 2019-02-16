@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<config>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	-->
+	<!-- 	 THEME BY 	 -=| STORMREAVER |=-			-->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	-->
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!-- NOTE: 1 is enabled | 0 is disabled.					-->
+	<!-- NOTE: Some overrides are turned off (enabled="0"),		-->
+	<!--       to make those functional, set enabled="1".		-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+
+<!-- PERSONAL ARCS :: semi-circles below player's feet. Display HP, Resources, Skills and CDs -->
+
+
+<!-- =========================	-->
+<!--	CONSTANTS				-->
+<!-- =========================	-->
+
+	<constants>
+
+
+	<!-- PERSONAL ARCS -->
+<Toggle value="1" />   <!-- TO DISABLE: change value="1" to value="0" -->
+
+
+	</constants>
+
+
+<!-- =========================	-->
+<!--	MAIN					-->
+<!-- =========================	-->
+
+<!-- Add Personal ARCS under player feet -->
+
+<personal enabled="::Toggle">
+
+	<!-- show only out-of-town? [1 = yes], [0 = no] -->
+	<conditions only_out_town="1" />
+
+	<!-- enable HP ARCS -->
+	<health enabled="1">
+		<fill enabled="1" color="180,255,50,50" stroke="4" start_cap="Round" end_cap="Round" />
+		<outline enabled="1" color="32,0,0,0" stroke="6" start_cap="Round" end_cap="Round" />
+		<emptyfill enabled="1" color="128,32,32,32" stroke="4" start_cap="Round" end_cap="Round" />
+	</health>
+
+	<!-- enable CD ARCS -->
+	<cooldown enabled="1">
+		<fill enabled="1" color="220,160,80,44" stroke="4" start_cap="Round" end_cap="Round" />
+		<outline enabled="1" color="128,0,0,0" stroke="6" start_cap="Round" end_cap="Round" />
+		<emptyfill enabled="1" color="128,80,255,80" stroke="4" start_cap="Round" end_cap="Round" />
+
+		<!-- enable CD ARCS Skill Images / enable Fade -->
+		<skill_image enabled="1" fade="1" />
+	</cooldown>
+
+	<!-- enable RESOURCE ARCS -->
+	<res enabled="1">
+		<arcane>
+			<fill enabled="1" color="150,100,0,205" stroke="4" start_cap="Round" end_cap="Round" />
+			<outline enabled="1" color="128,255,255,255" stroke="7" start_cap="Round" end_cap="Round" />
+		</arcane>
+		<discipline>
+			<fill enabled="1" color="150,0,0,255" stroke="4" start_cap="Round" end_cap="Round" />
+			<outline enabled="1" color="128,255,255,255" stroke="7" start_cap="Round" end_cap="Round" />
+		</discipline>
+		<hatred>
+			<fill enabled="1" color="150,255,0,0" stroke="4" start_cap="Round" end_cap="Round" />
+			<outline enabled="1" color="128,255,255,255" stroke="7" start_cap="Round" end_cap="Round" />
+		</hatred>
+		<fury>
+			<fill enabled="1" color="150,255,170,0" stroke="4" start_cap="Round" end_cap="Round" />
+			<outline enabled="1" color="128,0,0,0" stroke="7" start_cap="Round" end_cap="Round" />
+		</fury>
+		<mana>
+			<fill enabled="1" color="150,0,0,255" stroke="4" start_cap="Round" end_cap="Round" />
+			<outline enabled="1" color="128,255,255,255" stroke="7" start_cap="Round" end_cap="Round" />
+		</mana>
+		<spirit>
+			<fill enabled="1" color="150,255,255,200" stroke="4" start_cap="Round" end_cap="Round" />
+			<outline enabled="1" color="128,0,0,0" stroke="7" start_cap="Round" end_cap="Round" />
+		</spirit>
+		<wrath>
+			<fill enabled="1" color="150,255,255,225" stroke="4" start_cap="Round" end_cap="Round" />
+			<outline enabled="1" color="128,0,0,0" stroke="7" start_cap="Round" end_cap="Round" />
+		</wrath>
+		<emptyfill enabled="1" color="128,32,32,32" stroke="4" start_cap="Round" end_cap="Round" />
+	</res>
+
+</personal>
+
+
+<!-- =========================	-->
+<!--	OVVERRIDES				-->
+<!-- =========================	-->
+
+	<overrides>
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	PERSONAL ARCS			-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- disable ALL "Personal" ARCs under player's feet (HP/Res/CD) (in default theme) / Re-added to <MAIN> -->
+<Personal_Arcs enabled="1" file="ui_default_main" path="personal.enabled" value="0" />
+
+
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+	<!--	POWERS @ FEET			-->
+	<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^	-->
+
+<!-- enable POWERS @ FEET (SKILL ICONS BAR under player's feet) -->
+<Skills_At_Feet_Enable enabled="0" file="ui_default_powers_feet" path="templates.default.enabled" value="1" />
+
+<!-- move POWERS @ FEET Bar away from CD Arc -->
+<Skills_At_Feet_PosX enabled="0" file="ui_default_powers_feet" path="templates.default.position.y" value="-20" />
+
+
+	</overrides>
+
+
+</config>
