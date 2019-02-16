@@ -1,7 +1,0 @@
-﻿// ----------
-// If you want to run HUD with a non-english language, then rename this file to selected_language.txt,
-// and replace the following text with the language of your choice.
-// ----------
-// available languages: deDE, enUS, esES, esMX, frFR, itIT, koKR, plPL, ptBR, ptPT, ruRU, zhTW, zhCN
-// ----------
-enUS

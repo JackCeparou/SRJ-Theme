@@ -10,10 +10,12 @@ roslyn
 interfaces
 app.config
 plugins_compiled_*
+data
 **/*.bin
 **/*.dll
 **/*.exe
 # jack custom folder & files
+_data
 _releases
 **/*.sln
 **/*.DotSettings
