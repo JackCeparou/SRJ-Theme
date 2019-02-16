@@ -1,3 +1,4 @@
+#hud folders & files
 capture
 capture_paragon
 stat_tracker
@@ -7,23 +8,26 @@ doc*
 config
 roslyn
 interfaces
+app.config
+plugins_compiled_*
 **/*.bin
 **/*.dll
 **/*.exe
+# jack custom folder & files
+_releases
 **/*.sln
 **/*.DotSettings
 **/*.csproj
-app.config
-
-plugins_compiled_*
-
+_update.cmd
+zzz_update.ps1
+#hud default plugins
 Plugins/Default
 Plugins/User/PluginEnablerOrDisablerPlugin.txt
 Plugins/User/RevealConfigurationExamplePlugin.txt
-
+# authors plugins
 Plugins/Jack
 Plugins/Resu
-
+# sounds
 sounds/notification*
 sounds/*Resu.wav
 
