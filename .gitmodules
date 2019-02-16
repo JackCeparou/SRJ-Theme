@@ -1,0 +1,6 @@
+[submodule "JackCeparouCompass"]
+	path = JackCeparouCompass
+	url = https://github.com/JackCeparou/JackCeparouCompass
+[submodule "Resu"]
+	path = Resu
+	url = https://github.com/User5981/Resu
