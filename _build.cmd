@@ -1,0 +1,1 @@
+Powershell.exe -noprofile -command .\zzz_build_theme.ps1
