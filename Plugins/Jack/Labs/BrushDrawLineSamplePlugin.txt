@@ -1,0 +1,27 @@
+using Turbo.Plugins.Default;
+
+namespace Turbo.Plugins.Jack.Labs
+{
+    public class BrushDrawLineSamplePlugin : BasePlugin, IInGameTopPainter
+    {
+        public IBrush TheBrush { get; set; }
+
+        public BrushDrawLineSamplePlugin()
+        {
+            Enabled = true;
+        }
+
+        public override void Load(IController hud)
+        {
+            base.Load(hud);
+            TheBrush = Hud.Render.CreateBrush(140, 255, 10, 10, 1);
+        }
+
+        public void PaintTopInGame(ClipState clipState)
+        {
+            if (clipState != ClipState.AfterClip) return;
+
+            TheBrush.DrawLine(100, 100, 200, 200, 0);
+        }
+    }
+}
