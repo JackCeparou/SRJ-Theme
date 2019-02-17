@@ -4,7 +4,7 @@ $versionParts = (Split-Path $versionFile -Leaf).Split(" ")
 $buildNumber = $Env:BUILD_BUILDNUMBER
 $v = $versionParts[1].Replace("(", "").Replace(")", "")
 if ($null -eq $buildNumber) { # only exists in the build pipeline
-    $buildNumber = Get-Date -Format "yyyyMMdd.HHmm"
+    $buildNumber = Get-Date -Format "yyMMdd.HHmm"
     $buildNumber = "$buildNumber.$v"
 }
 
