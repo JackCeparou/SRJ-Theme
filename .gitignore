@@ -27,8 +27,10 @@ Plugins/Default
 Plugins/User/PluginEnablerOrDisablerPlugin.txt
 Plugins/User/RevealConfigurationExamplePlugin.txt
 # authors plugins
-Plugins/Jack
-Plugins/Resu
+Plugins/Jack/*.cs
+Plugins/Jack/**/*.cs
+Plugins/Resu/*.cs
+Plugins/Resu/**/*.cs
 # sounds
 sounds/notification*
 sounds/*Resu.wav
@@ -326,3 +328,6 @@ build/
 
 # End of https://www.gitignore.io/api/visualstudio,visualstudiocode
 /diff.txt
+
+####################################################################################
+!AliveMonstersPlugin.cs
