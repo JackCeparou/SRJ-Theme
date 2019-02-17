@@ -23,7 +23,6 @@
     "**/*.DotSettings": true,
     "**/project.json": true,
     "**/project.lock.json": true,
-    "**/.gitignore": true,
 
     "Resu/**": true,
     "JackCeparouCompass/**": true,
