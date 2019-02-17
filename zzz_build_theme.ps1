@@ -2,12 +2,13 @@ $versionFile = Get-Item -Path '.\*.version'
 $versionParts = (Split-Path $versionFile -Leaf).Split(" ")
 
 $buildNumber = $Env:BUILD_BUILDNUMBER
+$v = $versionParts[1].Replace("(", "").Replace(")", "")
 if ($null -eq $buildNumber) { # only exists in the build pipeline
-    $buildNumber = Get-Date -Format 'yyyyMMdd.HHmm'
+    $buildNumber = Get-Date -Format "yyyyMMdd.HHmm"
+    $buildNumber = "$buildNumber.$v"
 }
 
-$v = $versionParts[1].Replace("(", "").Replace(")", "")
-$targetFile = ".\_releases\SRJ.Theme.$buildNumber.$v.zip"
+$targetFile = ".\_releases\SRJ.Theme.$buildNumber.zip"
 
 Write-Host $targetFile
 
