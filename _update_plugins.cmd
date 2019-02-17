@@ -1,0 +1,1 @@
+Powershell.exe -noprofile -command .\zzz_update_plugins.ps1
