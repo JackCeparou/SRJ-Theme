@@ -16,7 +16,7 @@ data
 **/*.exe
 # jack custom folder & files
 _data
-_releases
+_releases/**
 **/*.sln
 **/*.DotSettings
 **/*.csproj
@@ -330,4 +330,5 @@ build/
 /diff.txt
 
 ####################################################################################
+!**/.gitignore
 !AliveMonstersPlugin.cs
