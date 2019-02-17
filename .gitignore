@@ -17,9 +17,6 @@ data
 # jack custom folder & files
 _data
 _releases/**
-**/*.sln
-**/*.DotSettings
-**/*.csproj
 _update.cmd
 zzz_update.ps1
 #hud default plugins

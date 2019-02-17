@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <DebugType>portable</DebugType>
+    <AssemblyName>Turbo</AssemblyName>
+    <OutputType>Library</OutputType>
+    <PackageId>SRJ-Theme</PackageId>
+    <RootNamespace>Turbo</RootNamespace>
+    <LangVersion>7</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\build\v7\bin\</OutputPath>
+    <BaseIntermediateOutputPath>..\build\v7\obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
+    <Reference Include="System" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="JackCeparouCompass\**" />
+    <Compile Remove="Resu\**" />
+    <EmbeddedResource Remove="JackCeparouCompass\**" />
+    <EmbeddedResource Remove="Resu\**" />
+    <None Remove="data\**" />
+    <None Remove="doc\**" />
+    <None Remove="logs\**" />
+    <None Remove="snapshots\**" />
+    <None Remove="stat_tracker\**" />
+    <None Remove="sounds\**" />
+    <None Remove="capture\**" />
+    <None Remove="obj\**" />
+    <None Remove="_config\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="*.dll" />
+    <None Remove="*.exe" />
+    <None Remove="*.exe.config" />
+    <None Remove="SRJ-Theme.*.DotSettings" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SharpDX" Version="3.1.1" />
+    <PackageReference Include="SharpDX.Direct2D1" Version="3.1.1" />
+    <PackageReference Include="SharpDX.Direct3D11" Version="3.1.1" />
+    <PackageReference Include="SharpDX.DirectInput" Version="3.1.1" />
+    <PackageReference Include="SharpDX.DXGI" Version="3.1.1" />
+    <PackageReference Include="SharpDX.Mathematics" Version="3.1.1" />
+  </ItemGroup>
+
+</Project>
