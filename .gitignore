@@ -35,10 +35,13 @@ Plugins/Resu/**/*.cs
 sounds/notification*
 sounds/*Resu.wav
 
+#vso
+.build
+*.build
+
 # Created by https://www.gitignore.io/api/visualstudio,visualstudiocode
 
 ### VisualStudioCode ###
-.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

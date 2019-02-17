@@ -1,0 +1,39 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "files.exclude": {
+    "stat_tracker": true,
+    "snapshots": true,
+    "**/*.exe": true,
+    "**/*.exe.config": true,
+    "**/*.dll": true,
+    "**/levelup_paragon*.txt": true,
+    "capture": true,
+    "capture_paragon": true,
+    "logs": false,
+    "data/*.txt": false,
+    "data/*.bin": true,
+    "bin": true,
+    "obj": true,
+    "_version": true,
+    ".mocks": true,
+    ".vs": true,
+    "**/*.sln": true,
+    "**/*.user": true,
+    "**/*.xproj": true,
+    "**/*.DotSettings": true,
+    "**/project.json": true,
+    "**/project.lock.json": true,
+    "**/.gitignore": true,
+
+    "Resu/**": true,
+    "JackCeparouCompass/**": true,
+    "plugins_compiled_*": true,
+
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true
+  },
+  "editor.codeLens": false
+  ,"editor.renderControlCharacters": false
+}
