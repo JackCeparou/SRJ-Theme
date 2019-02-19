@@ -10,7 +10,8 @@ roslyn
 interfaces
 app.config
 plugins_compiled_*
-data
+./data
+data/selected_language_example.txt
 **/*.bin
 **/*.dll
 **/*.exe
